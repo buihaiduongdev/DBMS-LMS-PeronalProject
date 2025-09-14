@@ -22,6 +22,7 @@ namespace LMSProject.Models
         public string ChucVu { get; set; } // null nếu là Admin
 
         public User() { }
+        //note
 
     }
 }
