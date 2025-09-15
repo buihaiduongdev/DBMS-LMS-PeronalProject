@@ -23,7 +23,6 @@ SELECT
     nv.NgaySinh,
     nv.Email,
     nv.SoDienThoai,
-    tk.TenDangNhap,
     tk.VaiTro,
     tk.TrangThai
 FROM

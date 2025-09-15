@@ -3,6 +3,7 @@ using LMSProject.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 
 namespace LMSProject.Services
 {
@@ -19,15 +20,16 @@ namespace LMSProject.Services
         public User Login(string username, string password)
         {
             // Bước 1: Xác thực tài khoản
-            string authSql = "SELECT MaTK, TenDangNhap, VaiTro, TrangThai FROM TaiKhoan WHERE TenDangNhap = @Username AND MatKhau = @Password";
+            string hashedPassword = SecurityHelper.HashMD5(password);
+            string authSql = "SELECT MaTK, TenDangNhap, VaiTro, TrangThai FROM TaiKhoan WHERE TenDangNhap = @Username AND MatKhauMaHoa = @Password";
             var authParams = new Dictionary<string, object>
             {
                 { "@Username", username },
-                { "@Password", password }
+                { "@Password", hashedPassword }
             };
 
             DataTable authDt = _dbHelper.ExecuteReader(authSql, authParams);
-
+           
             if (authDt.Rows.Count > 0)
             {
                 DataRow authRow = authDt.Rows[0];
@@ -54,7 +56,7 @@ namespace LMSProject.Services
                     }
                     else
                     {
-                        user.ChucVu = "Nhân viên"; 
+                        user.ChucVu = "Nhan Vien"; 
                     }
                 }
                 else

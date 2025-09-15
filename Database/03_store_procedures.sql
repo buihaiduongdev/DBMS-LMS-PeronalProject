@@ -178,3 +178,20 @@ BEGIN
     PRINT N'Gia hạn thẻ thành công cho độc giả ' + @MaDG;
 END;
 GO
+CREATE OR ALTER PROCEDURE sp_Admin_SetDocGiaEditLock
+    @IsLocked BIT
+AS
+BEGIN
+
+    IF @IsLocked = 1
+    BEGIN        
+        -- DENY se ghi de bat ky lenh GRANT nao da co
+        DENY INSERT, UPDATE ON OBJECT::DocGia TO RoleNhanVien;
+        
+    END
+    ELSE
+    BEGIN        
+        REVOKE INSERT, UPDATE ON OBJECT::DocGia FROM RoleNhanVien;
+    END
+END
+GO

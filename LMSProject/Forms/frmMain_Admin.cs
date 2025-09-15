@@ -2,6 +2,7 @@
 
 using System.Windows.Forms;
 using LMSProject.Models;
+using LMSProject.Services;
 using LMSProject.Utils;
 
 namespace LMSProject.Forms
@@ -12,7 +13,6 @@ namespace LMSProject.Forms
         {
             InitializeComponent();
             lblvaiTro.Text = "Quản trị viên";
-            lblHoten.Text = user.HoTen;
         }
 
         private void lblClose_Click(object sender, EventArgs e)
@@ -42,6 +42,7 @@ namespace LMSProject.Forms
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
+            UserService.CurrentUser = null;
             frmLogin login = new frmLogin();
             login.Show();
 

@@ -23,10 +23,9 @@ namespace LMSProject
         {
             string usn = txtTaiKhoan.Text;
             string pwd = txtMatKhau.Text;
-            
+
             UserService userService = new UserService();
             User user = userService.Login(usn, pwd);
-
             if (user == null)
             {
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu!");

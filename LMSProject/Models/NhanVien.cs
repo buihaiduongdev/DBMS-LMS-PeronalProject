@@ -7,7 +7,7 @@ namespace LMSProject.Models
     {
         public int IdNV { get; set; }
         public string MaNV { get; set; }
-        public int? MaTK { get; set; } // Foreign Key, có thể là NULL
+        public int? MaTK { get; set; }
         public string HoTen { get; set; }
         public DateTime? NgaySinh { get; set; }
         public string Email { get; set; }

@@ -42,6 +42,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlSide = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnQLNV = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -49,6 +52,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel3.SuspendLayout();
             this.pnlSide.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -150,9 +155,9 @@
             this.lblChucVu.ForeColor = System.Drawing.Color.White;
             this.lblChucVu.Location = new System.Drawing.Point(94, 59);
             this.lblChucVu.Name = "lblChucVu";
-            this.lblChucVu.Size = new System.Drawing.Size(46, 16);
+            this.lblChucVu.Size = new System.Drawing.Size(68, 16);
             this.lblChucVu.TabIndex = 6;
-            this.lblChucVu.Text = "Admin";
+            this.lblChucVu.Text = "NhanVien";
             // 
             // lblHoten
             // 
@@ -161,9 +166,9 @@
             this.lblHoten.ForeColor = System.Drawing.Color.White;
             this.lblHoten.Location = new System.Drawing.Point(94, 77);
             this.lblHoten.Name = "lblHoten";
-            this.lblHoten.Size = new System.Drawing.Size(131, 18);
+            this.lblHoten.Size = new System.Drawing.Size(113, 18);
             this.lblHoten.TabIndex = 5;
-            this.lblHoten.Text = "Nguyễn Văn A";
+            this.lblHoten.Text = "Bùi Thành B";
             // 
             // pictureBox4
             // 
@@ -185,6 +190,7 @@
             // pnlSide
             // 
             this.pnlSide.BackColor = System.Drawing.Color.Teal;
+            this.pnlSide.Controls.Add(this.panel1);
             this.pnlSide.Controls.Add(this.lblChucVu);
             this.pnlSide.Controls.Add(this.lblHoten);
             this.pnlSide.Controls.Add(this.pictureBox4);
@@ -196,6 +202,35 @@
             this.pnlSide.Name = "pnlSide";
             this.pnlSide.Size = new System.Drawing.Size(240, 681);
             this.pnlSide.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnQLNV);
+            this.panel1.Location = new System.Drawing.Point(3, 150);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(240, 45);
+            this.panel1.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(9, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnQLNV
+            // 
+            this.btnQLNV.AutoSize = true;
+            this.btnQLNV.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLNV.ForeColor = System.Drawing.Color.White;
+            this.btnQLNV.Location = new System.Drawing.Point(55, 14);
+            this.btnQLNV.Name = "btnQLNV";
+            this.btnQLNV.Size = new System.Drawing.Size(164, 18);
+            this.btnQLNV.TabIndex = 0;
+            this.btnQLNV.Text = "Quản lý nhân viên";
+            this.btnQLNV.Click += new System.EventHandler(this.btnQLNV_Click);
             // 
             // frmMain_NhanVien
             // 
@@ -221,6 +256,9 @@
             this.panel3.PerformLayout();
             this.pnlSide.ResumeLayout(false);
             this.pnlSide.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,5 +279,8 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnlSide;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label btnQLNV;
     }
 }

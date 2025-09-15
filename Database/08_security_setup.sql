@@ -1,6 +1,7 @@
 
 USE QuanLyThuVien;
 GO
+
 ----------------- Tao cac vai tro ----------------- 
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'RoleNhanVien' AND type = 'R') CREATE ROLE RoleNhanVien;
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'RoleQuanLy' AND type = 'R') CREATE ROLE RoleQuanLy;
@@ -33,15 +34,11 @@ GO
 
 ----------------- Gan nguoi dung vao vai tro ----------------- 
 ALTER ROLE RoleNhanVien ADD MEMBER userNV;
-ALTER ROLE RoleQuanLy ADD MEMBER userQL;
-ALTER ROLE RoleAdmin ADD MEMBER userAD;
-GO
+ALTER ROLE RoleQuanLy  ADD MEMBER userQL;
+ALTER ROLE RoleAdmin   ADD MEMBER userAD;
 
------------------ Tao phan cap vai tro ----------------- 
-IF NOT EXISTS (SELECT 1 FROM sys.database_role_members WHERE role_principal_id = ROLE_ID('RoleQuanLy') AND member_principal_id = ROLE_ID('RoleNhanVien'))
-    ALTER ROLE RoleQuanLy ADD MEMBER RoleNhanVien;
-IF NOT EXISTS (SELECT 1 FROM sys.database_role_members WHERE role_principal_id = ROLE_ID('RoleAdmin') AND member_principal_id = ROLE_ID('RoleQuanLy'))
-    ALTER ROLE RoleAdmin ADD MEMBER RoleQuanLy;
+ALTER ROLE RoleNhanVien ADD MEMBER RoleQuanLy;
+ALTER ROLE RoleQuanLy ADD MEMBER RoleAdmin;
 GO
 
 ----------------- Cap quyen cho cac vai tro ----------------- 
@@ -49,18 +46,38 @@ GO
 GRANT SELECT ON OBJECT::TaiKhoan TO login_user;
 GRANT SELECT ON OBJECT::NhanVien TO login_user;
 
--- Quyen cho RoleNhanVien: Them/Sua doc gia va xem cac bao cao
+-- Quyen cho RoleNhanVien: Them/Sua/Sp/Fn doc gia
 GRANT EXECUTE ON OBJECT::sp_InsertDocGia TO RoleNhanVien;
 GRANT EXECUTE ON OBJECT::sp_UpdateDocGia TO RoleNhanVien;
+GRANT EXECUTE ON OBJECT::sp_GiaHanTheDocGia TO RoleNhanVien;
+GRANT SELECT ON OBJECT::fn_TimKiemDocGia TO RoleNhanVien;
+GRANT SELECT ON OBJECT::vw_DocGiaSapHetHan TO RoleNhanVien;
+
+GRANT EXECUTE ON OBJECT::fn_KiemTraTrangThaiThe TO RoleNhanVien;
+GRANT SELECT, INSERT, UPDATE ON OBJECT::DocGia TO RoleNhanVien;
 
 -- Quyen cho RoleQuanLy: Co them quyen Xoa va Gia han the doc gia
 -- (Da ke thua quyen Them/Sua tu RoleNhanVien)
 GRANT EXECUTE ON OBJECT::sp_DeleteDocGia TO RoleQuanLy; -- Chi QuanLy moi duoc xoa
-GRANT EXECUTE ON OBJECT::sp_GiaHanTheDocGia TO RoleQuanLy;
+GRANT SELECT ON OBJECT::vw_ThongTinNhanVienChiTiet TO RoleQuanLy;
+GRANT DELETE ON OBJECT::DocGia TO RoleQuanLy;
 
 -- Quyen cho RoleAdmin: Full CRUD cho NhanVien
 -- (Da ke thua toan bo quyen cua QuanLy)
 GRANT EXECUTE ON OBJECT::sp_InsertNhanVien TO RoleAdmin;
 GRANT EXECUTE ON OBJECT::sp_UpdateNhanVien TO RoleAdmin;
 GRANT EXECUTE ON OBJECT::sp_DeleteNhanVien TO RoleAdmin;
+GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::NhanVien TO RoleAdmin;
+GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::TaiKhoan TO RoleAdmin;
+GRANT EXECUTE ON OBJECT::sp_Admin_SetDocGiaEditLock TO RoleAdmin;
+
+GO
+
+SELECT 
+    r.name AS role_name, 
+    m.name AS member_name
+FROM sys.database_role_members drm
+JOIN sys.database_principals r ON drm.role_principal_id = r.principal_id
+JOIN sys.database_principals m ON drm.member_principal_id = m.principal_id
+ORDER BY r.name, m.name;
 GO
