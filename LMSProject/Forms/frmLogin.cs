@@ -1,5 +1,4 @@
-﻿using System;
-
+using System;
 using System.Windows.Forms;
 using LMSProject.Forms;
 using LMSProject.Models;
@@ -22,10 +21,9 @@ namespace LMSProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //string usn = txtTaiKhoan.Text;
-            //string pwd = txtMatKhau.Text;
-            string usn = "admin";
-            string pwd = "admin";
+            string usn = txtTaiKhoan.Text;
+            string pwd = txtMatKhau.Text;
+            
             UserService userService = new UserService();
             User user = userService.Login(usn, pwd);
 
@@ -34,6 +32,9 @@ namespace LMSProject
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
                 return;
             }
+
+            // Đăng nhập thành công, gán người dùng hiện tại cho biến tĩnh
+            UserService.CurrentUser = user;
 
             // kiểm tra trạng thái tài khoản
             if (user.TrangThai == 0)

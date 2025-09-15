@@ -58,25 +58,16 @@ namespace LMSProject.Services
                 { "@NgayDangKy", docGia.NgayDangKy },
                 { "@NgayHetHan", docGia.NgayHetHan }
             };
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
             return rowsAffected > 0;
         }
 
         public bool UpdateDocGia(DocGia docGia)
         {
-            string sql = "UPDATE DocGia SET " +
-                         "HoTen = @HoTen, " +
-                         "NgaySinh = @NgaySinh, " +
-                         "DiaChi = @DiaChi, " +
-                         "Email = @Email, " +
-                         "SoDienThoai = @SoDienThoai, " +
-                         "NgayDangKy = @NgayDangKy, " +
-                         "NgayHetHan = @NgayHetHan, " +
-                         "TrangThai = @TrangThai " +
-                         "WHERE ID = @ID";
-
+            string spName = "sp_UpdateDocGia";
             var parameters = new Dictionary<string, object>
             {
+                { "@ID", docGia.ID },
                 { "@HoTen", docGia.HoTen },
                 { "@NgaySinh", (object)docGia.NgaySinh ?? DBNull.Value },
                 { "@DiaChi", docGia.DiaChi },
@@ -84,23 +75,22 @@ namespace LMSProject.Services
                 { "@SoDienThoai", docGia.SoDienThoai },
                 { "@NgayDangKy", docGia.NgayDangKy },
                 { "@NgayHetHan", docGia.NgayHetHan },
-                { "@TrangThai", docGia.TrangThai },
-                { "@ID", docGia.ID }
+                { "@TrangThai", docGia.TrangThai }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(sql, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
             return rowsAffected > 0;
         }
 
         public bool DeleteDocGia(int docGiaId)
         {
-            string sql = "DELETE FROM DocGia WHERE ID = @ID";
+            string spName = "sp_DeleteDocGia";
             var parameters = new Dictionary<string, object>
             {
                 { "@ID", docGiaId }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(sql, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
             return rowsAffected > 0;
         }
 
@@ -118,7 +108,7 @@ namespace LMSProject.Services
                 { "@SoThangGiaHan", soThangGiaHan }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
             return rowsAffected > 0;
         }
 

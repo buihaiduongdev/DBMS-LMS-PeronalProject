@@ -2,9 +2,7 @@ using System;
 
 namespace LMSProject.Models
 {
-    /// <summary>
-    /// Model này phản ánh chính xác cấu trúc của bảng NhanVien trong CSDL.
-    /// </summary>
+
     public class NhanVien
     {
         public int IdNV { get; set; }

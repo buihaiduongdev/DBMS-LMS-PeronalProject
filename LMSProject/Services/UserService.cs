@@ -1,61 +1,71 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LMSProject.Models;
 using LMSProject.Utils;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace LMSProject.Services
 {
-    internal class UserService
+    public class UserService
     {
+        public static User CurrentUser { get; set; }
+        private readonly DbHelper _dbHelper;
+
+        public UserService()
+        {
+            _dbHelper = new DbHelper();
+        }
 
         public User Login(string username, string password)
         {
-            string hashedPassword = SecurityHelper.HashMD5(password);
-            DbHelper db = new DbHelper();
-            string sql = @"
-                    SELECT tk.MaTK, tk.TenDangNhap, tk.MatKhauMaHoa, tk.VaiTro, tk.TrangThai, 
-                        ISNULL(ad.HoTen, nv.HoTen) AS HoTen,
-                        ISNULL(ad.NgaySinh, nv.NgaySinh) AS NgaySinh,
-                        ISNULL(ad.Email, nv.Email) AS Email,
-                        ISNULL(ad.SoDienThoai, nv.SoDienThoai) AS SoDienThoai,
-                        nv.ChucVu
-                    FROM TaiKhoan tk
-                    LEFT JOIN [Admin] ad ON tk.MaTK = ad.MaTK
-                    LEFT JOIN NhanVien nv ON tk.MaTK = nv.MaTK
-                    WHERE tk.TenDangNhap = @u AND tk.MatKhauMaHoa = @p";
-
-            var param = new Dictionary<string, object>
+            // Bước 1: Xác thực tài khoản
+            string authSql = "SELECT MaTK, TenDangNhap, VaiTro, TrangThai FROM TaiKhoan WHERE TenDangNhap = @Username AND MatKhau = @Password";
+            var authParams = new Dictionary<string, object>
             {
-                {"@u", username},
-                {"@p", hashedPassword}
+                { "@Username", username },
+                { "@Password", password }
             };
 
-            DataTable dt = db.ExecuteReader(sql, param);
+            DataTable authDt = _dbHelper.ExecuteReader(authSql, authParams);
 
-            if (dt.Rows.Count > 0)
+            if (authDt.Rows.Count > 0)
             {
-                DataRow row = dt.Rows[0];
-                return new User
+                DataRow authRow = authDt.Rows[0];
+                var user = new User
                 {
-                    MaTK = Convert.ToInt32(row["MaTK"]),
-                    TenDangNhap = row["TenDangNhap"].ToString(),
-                    VaiTro = Convert.ToInt32(row["VaiTro"]),
-                    TrangThai = Convert.ToInt32(row["TrangThai"]),
-                    ChucVu = row["ChucVu"] != DBNull.Value ? row["ChucVu"].ToString() : null,
-                    HoTen = row["HoTen"] != DBNull.Value ? row["HoTen"].ToString() : null,
-                    NgaySinh = row["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(row["NgaySinh"]) : (DateTime?)null,
-                    Email = row["Email"] != DBNull.Value ? row["Email"].ToString() : null,
-                    SoDienThoai = row["SoDienThoai"] != DBNull.Value ? row["SoDienThoai"].ToString() : null
+                    MaTK = Convert.ToInt32(authRow["MaTK"]),
+                    TenDangNhap = authRow["TenDangNhap"].ToString(),
+                    VaiTro = Convert.ToInt32(authRow["VaiTro"]),
+                    TrangThai = Convert.ToInt32(authRow["TrangThai"])
                 };
+
+                if (user.VaiTro == 1)
+                {
+                    string staffSql = "SELECT ChucVu FROM NhanVien WHERE MaTK = @MaTK";
+                    var staffParams = new Dictionary<string, object>
+                    {
+                        { "@MaTK", user.MaTK }
+                    };
+
+                    DataTable staffDt = _dbHelper.ExecuteReader(staffSql, staffParams);
+                    if (staffDt.Rows.Count > 0)
+                    {
+                        user.ChucVu = staffDt.Rows[0]["ChucVu"].ToString();
+                    }
+                    else
+                    {
+                        user.ChucVu = "Nhân viên"; 
+                    }
+                }
+                else
+                {
+                    user.ChucVu = "Admin";
+                }
+
+                return user;
             }
 
-            return null; // Sai tài khoản hoặc mật khẩu
+            return null;
         }
-
     }
 }

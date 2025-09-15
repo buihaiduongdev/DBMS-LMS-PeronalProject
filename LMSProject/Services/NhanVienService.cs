@@ -31,7 +31,6 @@ namespace LMSProject.Services
         public bool InsertNhanVien(NhanVien nhanVien)
         {
             string spName = "sp_InsertNhanVien";
-
             var parameters = new Dictionary<string, object>
             {
                 { "@MaTK", (object)nhanVien.MaTK ?? DBNull.Value },
@@ -42,7 +41,37 @@ namespace LMSProject.Services
                 { "@ChucVu", nhanVien.ChucVu }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+            return rowsAffected > 0;
+        }
+
+        public bool UpdateNhanVien(NhanVien nhanVien)
+        {
+            string spName = "sp_UpdateNhanVien";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@IdNV", nhanVien.IdNV },
+                { "@HoTen", nhanVien.HoTen },
+                { "@NgaySinh", (object)nhanVien.NgaySinh ?? DBNull.Value },
+                { "@Email", nhanVien.Email },
+                { "@SoDienThoai", nhanVien.SoDienThoai },
+                { "@ChucVu", nhanVien.ChucVu },
+                { "@MaTK", (object)nhanVien.MaTK ?? DBNull.Value }
+            };
+
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+            return rowsAffected > 0;
+        }
+
+        public bool DeleteNhanVien(int idNV)
+        {
+            string spName = "sp_DeleteNhanVien";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@IdNV", idNV }
+            };
+
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
             return rowsAffected > 0;
         }
 
