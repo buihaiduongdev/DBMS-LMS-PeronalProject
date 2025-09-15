@@ -1,7 +1,7 @@
 ﻿USE QuanLyThuVien;
 GO
 -------------------------- Bui Hai Duong - Quan Ly Doc Gia --------------------------
-CREATE FUNCTION fn_KiemTraTrangThaiThe (@MaDG VARCHAR(50))
+CREATE OR ALTER FUNCTION fn_KiemTraTrangThaiThe (@MaDG VARCHAR(50))
 RETURNS NVARCHAR(50)
 AS
 BEGIN
@@ -19,7 +19,7 @@ END;
 GO
 
 
-CREATE FUNCTION fn_TimKiemDocGia (@TuKhoa NVARCHAR(100))
+CREATE OR ALTER FUNCTION fn_TimKiemDocGia (@TuKhoa NVARCHAR(100))
 RETURNS TABLE
 AS
 RETURN

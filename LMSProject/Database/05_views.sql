@@ -2,7 +2,7 @@ USE QuanLyThuVien;
 GO
 
 -------------------------- Bui Hai Duong - Quan Ly Doc Gia --------------------------
-CREATE VIEW vw_DocGiaSapHetHan AS
+CREATE OR ALTER VIEW vw_DocGiaSapHetHan AS
 SELECT
     MaDG,
     HoTen,
@@ -16,7 +16,7 @@ WHERE
     TrangThai = 'ConHan' AND NgayHetHan BETWEEN GETDATE() AND DATEADD(DAY, 30, GETDATE());
 GO
 
-CREATE VIEW vw_ThongTinNhanVienChiTiet AS
+CREATE OR ALTER VIEW vw_ThongTinNhanVienChiTiet AS
 SELECT
     nv.MaNV,
     nv.HoTen,

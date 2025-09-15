@@ -5,7 +5,7 @@ GO
 USE QuanLyThuVien;
 GO
 
-ALTER PROCEDURE sp_InsertDocGia
+CREATE OR ALTER PROCEDURE sp_InsertDocGia
     @HoTen NVARCHAR(50),
     @NgaySinh DATE,
     @DiaChi NVARCHAR(255),
@@ -29,7 +29,7 @@ BEGIN
 END;
 GO
 
-ALTER PROCEDURE sp_InsertNhanVien
+CREATE OR ALTER PROCEDURE sp_InsertNhanVien
     @MaTK INT = NULL,
     @HoTen NVARCHAR(50),
     @NgaySinh DATE,
@@ -52,7 +52,7 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE sp_UpdateDocGia
+CREATE OR ALTER PROCEDURE sp_UpdateDocGia
     @ID INT,
     @HoTen NVARCHAR(50),
     @NgaySinh DATE,
@@ -86,7 +86,7 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE sp_DeleteDocGia
+CREATE OR ALTER PROCEDURE sp_DeleteDocGia
     @ID INT
 AS
 BEGIN
@@ -104,7 +104,7 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE sp_UpdateNhanVien
+CREATE OR ALTER PROCEDURE sp_UpdateNhanVien
     @IdNV INT,
     @HoTen NVARCHAR(50),
     @NgaySinh DATE,
@@ -134,7 +134,7 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE sp_DeleteNhanVien
+CREATE OR ALTER PROCEDURE sp_DeleteNhanVien
     @IdNV INT
 AS
 BEGIN
@@ -151,7 +151,7 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE sp_GiaHanTheDocGia (
+CREATE OR ALTER PROCEDURE sp_GiaHanTheDocGia (
     @MaDG VARCHAR(50),
     @SoThangGiaHan INT
 )
