@@ -3,7 +3,6 @@ using LMSProject.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace LMSProject.Services
 {
@@ -16,22 +15,27 @@ namespace LMSProject.Services
             _dbHelper = new DbHelper();
         }
 
-        public List<DocGia> GetAllDocGia()
+        public List<DocGia> GetAllDocGiaList()
         {
             string sql = "SELECT * FROM DocGia ORDER BY ID DESC";
             DataTable dt = _dbHelper.ExecuteReader(sql);
             return ConvertDataTableToList(dt);
         }
-
+        public DataTable GetAllDocGia()
+        {
+            string sql = "SELECT * FROM DocGia ORDER BY ID DESC";
+            DataTable dt = _dbHelper.ExecuteReader(sql);
+            return dt;
+        }
         public string KiemTraTrangThaiThe(string maDG)
         {
             string sql = "SELECT dbo.fn_KiemTraTrangThaiThe(@MaDG)";
-            SqlParameter[] parameters = new SqlParameter[]
+            var parameters = new Dictionary<string, object>
             {
-                new SqlParameter("@MaDG", maDG)
+                { "@MaDG", maDG }
             };
 
-            object result = _dbHelper.ExecuteScalar(sql, CommandType.Text, parameters);
+            object result = _dbHelper.ExecuteScalar(sql, parameters);
             return result?.ToString();
         }
 
@@ -44,17 +48,17 @@ namespace LMSProject.Services
         public bool InsertDocGia(DocGia docGia)
         {
             string spName = "sp_InsertDocGia";
-            SqlParameter[] parameters = new SqlParameter[]
+            var parameters = new Dictionary<string, object>
             {
-                new SqlParameter("@HoTen", docGia.HoTen),
-                new SqlParameter("@NgaySinh", (object)docGia.NgaySinh ?? DBNull.Value),
-                new SqlParameter("@DiaChi", docGia.DiaChi),
-                new SqlParameter("@Email", docGia.Email),
-                new SqlParameter("@SoDienThoai", docGia.SoDienThoai),
-                new SqlParameter("@NgayDangKy", docGia.NgayDangKy),
-                new SqlParameter("@NgayHetHan", docGia.NgayHetHan)
+                { "@HoTen", docGia.HoTen },
+                { "@NgaySinh", (object)docGia.NgaySinh ?? DBNull.Value },
+                { "@DiaChi", docGia.DiaChi },
+                { "@Email", docGia.Email },
+                { "@SoDienThoai", docGia.SoDienThoai },
+                { "@NgayDangKy", docGia.NgayDangKy },
+                { "@NgayHetHan", docGia.NgayHetHan }
             };
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, CommandType.StoredProcedure, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters);
             return rowsAffected > 0;
         }
 
@@ -71,57 +75,50 @@ namespace LMSProject.Services
                          "TrangThai = @TrangThai " +
                          "WHERE ID = @ID";
 
-            SqlParameter[] parameters = new SqlParameter[]
+            var parameters = new Dictionary<string, object>
             {
-                new SqlParameter("@HoTen", docGia.HoTen),
-                new SqlParameter("@NgaySinh", (object)docGia.NgaySinh ?? DBNull.Value),
-                new SqlParameter("@DiaChi", docGia.DiaChi),
-                new SqlParameter("@Email", docGia.Email),
-                new SqlParameter("@SoDienThoai", docGia.SoDienThoai),
-                new SqlParameter("@NgayDangKy", docGia.NgayDangKy),
-                new SqlParameter("@NgayHetHan", docGia.NgayHetHan),
-                new SqlParameter("@TrangThai", docGia.TrangThai),
-                new SqlParameter("@ID", docGia.ID)
+                { "@HoTen", docGia.HoTen },
+                { "@NgaySinh", (object)docGia.NgaySinh ?? DBNull.Value },
+                { "@DiaChi", docGia.DiaChi },
+                { "@Email", docGia.Email },
+                { "@SoDienThoai", docGia.SoDienThoai },
+                { "@NgayDangKy", docGia.NgayDangKy },
+                { "@NgayHetHan", docGia.NgayHetHan },
+                { "@TrangThai", docGia.TrangThai },
+                { "@ID", docGia.ID }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(sql, CommandType.Text, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(sql, parameters);
             return rowsAffected > 0;
         }
 
         public bool DeleteDocGia(int docGiaId)
         {
             string sql = "DELETE FROM DocGia WHERE ID = @ID";
-            SqlParameter[] parameters = new SqlParameter[]
+            var parameters = new Dictionary<string, object>
             {
-                new SqlParameter("@ID", docGiaId)
+                { "@ID", docGiaId }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(sql, CommandType.Text, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(sql, parameters);
             return rowsAffected > 0;
         }
 
         public DataTable TimKiemDocGia(string tuKhoa)
         {
-            string sql = "SELECT * FROM dbo.fn_TimKiemDocGia(@tuKhoa)";
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@tuKhoa", tuKhoa)
-            };
-
-            DataTable dt = _dbHelper.ExecuteReader(sql, CommandType.Text, parameters);
-            return dt;
+            return _dbHelper.ExecuteTableFunction("dbo.fn_TimKiemDocGia", new Dictionary<string, object> { { "@TuKhoa ", tuKhoa } });
         }
 
         public bool GiaHanTheDocGia(string maDG, int soThangGiaHan)
         {
             string spName = "sp_GiaHanTheDocGia";
-            SqlParameter[] parameters = new SqlParameter[]
+            var parameters = new Dictionary<string, object>
             {
-                new SqlParameter("@MaDG", maDG),
-                new SqlParameter("@SoThangGiaHan", soThangGiaHan)
+                { "@MaDG", maDG },
+                { "@SoThangGiaHan", soThangGiaHan }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, CommandType.StoredProcedure, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters);
             return rowsAffected > 0;
         }
 

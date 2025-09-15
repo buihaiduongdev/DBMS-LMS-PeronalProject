@@ -3,7 +3,6 @@ using LMSProject.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace LMSProject.Services
 {
@@ -15,7 +14,7 @@ namespace LMSProject.Services
         {
             _dbHelper = new DbHelper();
         }
-        
+
         public List<NhanVien> GetAllNhanVien()
         {
             string sql = "SELECT * FROM NhanVien ORDER BY IdNV DESC";
@@ -33,17 +32,17 @@ namespace LMSProject.Services
         {
             string spName = "sp_InsertNhanVien";
 
-            SqlParameter[] parameters = new SqlParameter[]
+            var parameters = new Dictionary<string, object>
             {
-                new SqlParameter("@MaTK", (object)nhanVien.MaTK ?? DBNull.Value),
-                new SqlParameter("@HoTen", nhanVien.HoTen),
-                new SqlParameter("@NgaySinh", (object)nhanVien.NgaySinh ?? DBNull.Value),
-                new SqlParameter("@Email", nhanVien.Email),
-                new SqlParameter("@SoDienThoai", nhanVien.SoDienThoai),
-                new SqlParameter("@ChucVu", nhanVien.ChucVu)
+                { "@MaTK", (object)nhanVien.MaTK ?? DBNull.Value },
+                { "@HoTen", nhanVien.HoTen },
+                { "@NgaySinh", (object)nhanVien.NgaySinh ?? DBNull.Value },
+                { "@Email", nhanVien.Email },
+                { "@SoDienThoai", nhanVien.SoDienThoai },
+                { "@ChucVu", nhanVien.ChucVu }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, CommandType.StoredProcedure, parameters);
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters);
             return rowsAffected > 0;
         }
 

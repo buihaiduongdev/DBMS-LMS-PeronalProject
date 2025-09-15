@@ -22,9 +22,10 @@ namespace LMSProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string usn = txtTaiKhoan.Text;
-            string pwd = txtMatKhau.Text;
-
+            //string usn = txtTaiKhoan.Text;
+            //string pwd = txtMatKhau.Text;
+            string usn = "admin";
+            string pwd = "admin";
             UserService userService = new UserService();
             User user = userService.Login(usn, pwd);
 

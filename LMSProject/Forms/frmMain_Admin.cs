@@ -22,11 +22,9 @@ namespace LMSProject.Forms
 
         private void OpenChildForm(Form childForm)
         {
-            // Nếu panel có form và form đó cùng kiểu với childForm thì không load lại
             if (pnlMain.Controls.Count > 0 && pnlMain.Controls[0].GetType() == childForm.GetType())
                 return;
 
-            // Xoá form cũ
             if (pnlMain.Controls.Count > 0)
             {
                 pnlMain.Controls[0].Dispose();
@@ -49,26 +47,26 @@ namespace LMSProject.Forms
 
             this.Close();
         }
-
-        private void btnQlNhanVien_Click(object sender, EventArgs e)
-        {
-            frmQLDocGia frmQLSach = new frmQLDocGia();
-            OpenChildForm(frmQLSach);
-        }
-
-        private void btnQlSach_Click(object sender, EventArgs e)
-        {
-            frmQLNhanVien frmQLNV = new frmQLNhanVien();
-            OpenChildForm(frmQLNV);
-        }
-
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             DesignHelper.hoverLabel(lblClose);
-            DesignHelper.hoverLabel(btnQlSach);
+            DesignHelper.hoverLabel(btnQlDocGia);
             DesignHelper.hoverLabel(btnQlNhanVien);
             DesignHelper.hoverLabel(btnDangXuat);
+        }
+
+
+        private void btnQlNhanVien_Click(object sender, EventArgs e)
+        {
+            frmQLNhanVien frmQLNhanVien = new frmQLNhanVien();
+            OpenChildForm(frmQLNhanVien);
+        }
+
+
+        private void btnQlDocGia_Click(object sender, EventArgs e)
+        {
+            frmQLDocGia frmQLDocGia = new frmQLDocGia();
+            OpenChildForm(frmQLDocGia);
         }
     }
 }

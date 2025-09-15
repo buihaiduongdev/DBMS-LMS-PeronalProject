@@ -65,9 +65,14 @@ namespace LMSProject.Forms
         private void frmMain_NhanVien_Load(object sender, EventArgs e)
         {
             DesignHelper.hoverLabel(lblClose);
-            DesignHelper.hoverLabel(btnQlSach);
-            DesignHelper.hoverLabel(btnQlNhanVien);
+            DesignHelper.hoverLabel(btnQlDocGia);
+            DesignHelper.hoverLabel(btnQlDocGia);
             DesignHelper.hoverLabel(btnDangXuat);
+        }
+
+        private void btnQlDocGia_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

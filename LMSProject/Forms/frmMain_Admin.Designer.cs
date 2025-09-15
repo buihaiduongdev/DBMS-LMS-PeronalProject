@@ -40,7 +40,7 @@
             this.btnQlNhanVien = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnQlSach = new System.Windows.Forms.Label();
+            this.btnQlDocGia = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.lblClose = new System.Windows.Forms.Label();
@@ -68,9 +68,8 @@
             this.pnlSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSide.Font = new System.Drawing.Font("Verdana", 12F);
             this.pnlSide.Location = new System.Drawing.Point(0, 0);
-            this.pnlSide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlSide.Name = "pnlSide";
-            this.pnlSide.Size = new System.Drawing.Size(320, 838);
+            this.pnlSide.Size = new System.Drawing.Size(273, 681);
             this.pnlSide.TabIndex = 0;
             // 
             // lblvaiTro
@@ -78,10 +77,9 @@
             this.lblvaiTro.AutoSize = true;
             this.lblvaiTro.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblvaiTro.ForeColor = System.Drawing.Color.White;
-            this.lblvaiTro.Location = new System.Drawing.Point(125, 73);
-            this.lblvaiTro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblvaiTro.Location = new System.Drawing.Point(94, 59);
             this.lblvaiTro.Name = "lblvaiTro";
-            this.lblvaiTro.Size = new System.Drawing.Size(65, 20);
+            this.lblvaiTro.Size = new System.Drawing.Size(46, 16);
             this.lblvaiTro.TabIndex = 6;
             this.lblvaiTro.Text = "Admin";
             // 
@@ -90,19 +88,17 @@
             this.lblHoten.AutoSize = true;
             this.lblHoten.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHoten.ForeColor = System.Drawing.Color.White;
-            this.lblHoten.Location = new System.Drawing.Point(125, 95);
-            this.lblHoten.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHoten.Location = new System.Drawing.Point(94, 77);
             this.lblHoten.Name = "lblHoten";
-            this.lblHoten.Size = new System.Drawing.Size(169, 25);
+            this.lblHoten.Size = new System.Drawing.Size(131, 18);
             this.lblHoten.TabIndex = 5;
             this.lblHoten.Text = "Nguyễn Văn A";
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(113, 113);
+            this.pictureBox4.Size = new System.Drawing.Size(85, 92);
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
             // 
@@ -110,18 +106,16 @@
             // 
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.btnDangXuat);
-            this.panel3.Location = new System.Drawing.Point(0, 779);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(0, 633);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(320, 55);
+            this.panel3.Size = new System.Drawing.Size(240, 45);
             this.panel3.TabIndex = 3;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(12, 4);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(9, 3);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(53, 49);
+            this.pictureBox3.Size = new System.Drawing.Size(40, 40);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
@@ -130,10 +124,9 @@
             this.btnDangXuat.AutoSize = true;
             this.btnDangXuat.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.Location = new System.Drawing.Point(73, 17);
-            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnDangXuat.Location = new System.Drawing.Point(55, 14);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(126, 25);
+            this.btnDangXuat.Size = new System.Drawing.Size(99, 18);
             this.btnDangXuat.TabIndex = 0;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
@@ -142,18 +135,16 @@
             // 
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnQlNhanVien);
-            this.panel1.Location = new System.Drawing.Point(4, 187);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(3, 152);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 55);
+            this.panel1.Size = new System.Drawing.Size(237, 45);
             this.panel1.TabIndex = 2;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(8, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 49);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -162,10 +153,9 @@
             this.btnQlNhanVien.AutoSize = true;
             this.btnQlNhanVien.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQlNhanVien.ForeColor = System.Drawing.Color.White;
-            this.btnQlNhanVien.Location = new System.Drawing.Point(73, 17);
-            this.btnQlNhanVien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnQlNhanVien.Location = new System.Drawing.Point(55, 14);
             this.btnQlNhanVien.Name = "btnQlNhanVien";
-            this.btnQlNhanVien.Size = new System.Drawing.Size(213, 25);
+            this.btnQlNhanVien.Size = new System.Drawing.Size(164, 18);
             this.btnQlNhanVien.TabIndex = 0;
             this.btnQlNhanVien.Text = "Quản lý nhân viên";
             this.btnQlNhanVien.Click += new System.EventHandler(this.btnQlNhanVien_Click);
@@ -173,34 +163,31 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.btnQlSach);
-            this.panel2.Location = new System.Drawing.Point(0, 124);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Controls.Add(this.btnQlDocGia);
+            this.panel2.Location = new System.Drawing.Point(0, 101);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(320, 55);
+            this.panel2.Size = new System.Drawing.Size(240, 45);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(12, 4);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(53, 49);
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // btnQlSach
+            // btnQlDocGia
             // 
-            this.btnQlSach.AutoSize = true;
-            this.btnQlSach.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQlSach.ForeColor = System.Drawing.Color.White;
-            this.btnQlSach.Location = new System.Drawing.Point(73, 17);
-            this.btnQlSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.btnQlSach.Name = "btnQlSach";
-            this.btnQlSach.Size = new System.Drawing.Size(185, 25);
-            this.btnQlSach.TabIndex = 0;
-            this.btnQlSach.Text = "Quản lý đọc giả";
-            this.btnQlSach.Click += new System.EventHandler(this.btnQlSach_Click);
+            this.btnQlDocGia.AutoSize = true;
+            this.btnQlDocGia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQlDocGia.ForeColor = System.Drawing.Color.White;
+            this.btnQlDocGia.Location = new System.Drawing.Point(55, 14);
+            this.btnQlDocGia.Name = "btnQlDocGia";
+            this.btnQlDocGia.Size = new System.Drawing.Size(141, 18);
+            this.btnQlDocGia.TabIndex = 0;
+            this.btnQlDocGia.Text = "Quản lý đọc giả";
+            this.btnQlDocGia.Click += new System.EventHandler(this.btnQlDocGia_Click);
             // 
             // pnlHeader
             // 
@@ -208,20 +195,19 @@
             this.pnlHeader.Controls.Add(this.label3);
             this.pnlHeader.Controls.Add(this.lblClose);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(320, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlHeader.Location = new System.Drawing.Point(273, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1365, 50);
+            this.pnlHeader.Size = new System.Drawing.Size(991, 41);
             this.pnlHeader.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 11);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Location = new System.Drawing.Point(4, 9);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(447, 32);
+            this.label3.Size = new System.Drawing.Size(349, 25);
             this.label3.TabIndex = 6;
             this.label3.Text = "Library Management System";
             // 
@@ -230,10 +216,10 @@
             this.lblClose.AutoSize = true;
             this.lblClose.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClose.ForeColor = System.Drawing.Color.Crimson;
-            this.lblClose.Location = new System.Drawing.Point(1316, 4);
-            this.lblClose.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblClose.Location = new System.Drawing.Point(987, 3);
+            this.lblClose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblClose.Name = "lblClose";
-            this.lblClose.Size = new System.Drawing.Size(41, 41);
+            this.lblClose.Size = new System.Drawing.Size(33, 32);
             this.lblClose.TabIndex = 9;
             this.lblClose.Text = "X";
             this.lblClose.Click += new System.EventHandler(this.lblClose_Click);
@@ -241,22 +227,20 @@
             // pnlMain
             // 
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(320, 50);
-            this.pnlMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMain.Location = new System.Drawing.Point(273, 41);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1365, 788);
+            this.pnlMain.Size = new System.Drawing.Size(991, 640);
             this.pnlMain.TabIndex = 2;
             // 
             // frmMain_Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSide);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain_Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
@@ -288,7 +272,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label btnQlSach;
+        private System.Windows.Forms.Label btnQlDocGia;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label btnDangXuat;
