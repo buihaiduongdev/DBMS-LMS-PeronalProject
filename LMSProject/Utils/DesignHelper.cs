@@ -11,6 +11,11 @@ namespace LMSProject.Utils
 {
     public class DesignHelper
     {
+        public static string MappingID(int id)
+        {
+            return "DG" + id.ToString("D4");
+        }
+
         public static void hoverLabel(System.Windows.Forms.Label lbl)
         {
             if (lbl != null)

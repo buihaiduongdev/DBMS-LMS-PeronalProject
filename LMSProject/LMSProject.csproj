@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -76,6 +76,12 @@
     <Compile Include="Forms\frmQLNhanVien.Designer.cs">
       <DependentUpon>frmQLNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSuaDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSuaDocGia.Designer.cs">
+      <DependentUpon>frmSuaDocGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fromThemMoiDG.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQLDocGia.resx">
       <DependentUpon>frmQLDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSuaDocGia.resx">
+      <DependentUpon>frmSuaDocGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fromThemMoiDG.resx">
       <DependentUpon>fromThemMoiDG.cs</DependentUpon>

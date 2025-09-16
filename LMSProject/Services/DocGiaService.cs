@@ -23,7 +23,7 @@ namespace LMSProject.Services
         //}
         public DataTable GetAllDocGia()
         {
-            string sql = "SELECT * FROM DocGia ORDER BY ID DESC";
+            string sql = "SELECT * FROM DocGia ORDER BY ID ASC";
             DataTable dt = _dbHelper.ExecuteReader(sql);
             return dt;
         }

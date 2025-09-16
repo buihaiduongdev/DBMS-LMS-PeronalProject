@@ -15,7 +15,7 @@ namespace LMSProject.Models
             NgayHetHan = ngayHetHan;
         }
 
-        public DocGia(int iD, string hoTen, DateTime? ngaySinh, string diaChi, string email, string soDienThoai, DateTime ngayDangKy, DateTime ngayHetHan, string trangThai)
+        public DocGia(int iD, string hoTen, string diaChi, string email, string soDienThoai, DateTime? ngaySinh, DateTime ngayDangKy, DateTime ngayHetHan, string trangThai)
         {
             ID = iD;
             HoTen = hoTen;

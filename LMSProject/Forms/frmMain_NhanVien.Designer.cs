@@ -59,19 +59,20 @@
             // pnlMain
             // 
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(240, 41);
+            this.pnlMain.Location = new System.Drawing.Point(320, 50);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1024, 640);
+            this.pnlMain.Size = new System.Drawing.Size(1365, 788);
             this.pnlMain.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 9);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(5, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(349, 25);
+            this.label3.Size = new System.Drawing.Size(447, 32);
             this.label3.TabIndex = 6;
             this.label3.Text = "Library Management System";
             // 
@@ -81,9 +82,10 @@
             this.pnlHeader.Controls.Add(this.label3);
             this.pnlHeader.Controls.Add(this.lblClose);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(240, 0);
+            this.pnlHeader.Location = new System.Drawing.Point(320, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1024, 41);
+            this.pnlHeader.Size = new System.Drawing.Size(1365, 50);
             this.pnlHeader.TabIndex = 4;
             // 
             // lblClose
@@ -91,19 +93,20 @@
             this.lblClose.AutoSize = true;
             this.lblClose.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClose.ForeColor = System.Drawing.Color.Crimson;
-            this.lblClose.Location = new System.Drawing.Point(987, 3);
-            this.lblClose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblClose.Location = new System.Drawing.Point(1316, 4);
+            this.lblClose.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblClose.Name = "lblClose";
-            this.lblClose.Size = new System.Drawing.Size(33, 32);
+            this.lblClose.Size = new System.Drawing.Size(41, 41);
             this.lblClose.TabIndex = 9;
             this.lblClose.Text = "X";
             this.lblClose.Click += new System.EventHandler(this.lblClose_Click);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(9, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.Size = new System.Drawing.Size(53, 49);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -112,9 +115,10 @@
             this.btnQlDocGia.AutoSize = true;
             this.btnQlDocGia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQlDocGia.ForeColor = System.Drawing.Color.White;
-            this.btnQlDocGia.Location = new System.Drawing.Point(55, 14);
+            this.btnQlDocGia.Location = new System.Drawing.Point(73, 17);
+            this.btnQlDocGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnQlDocGia.Name = "btnQlDocGia";
-            this.btnQlDocGia.Size = new System.Drawing.Size(141, 18);
+            this.btnQlDocGia.Size = new System.Drawing.Size(185, 25);
             this.btnQlDocGia.TabIndex = 0;
             this.btnQlDocGia.Text = "Quản lý đọc giả";
             this.btnQlDocGia.Click += new System.EventHandler(this.btnQlDocGia_Click);
@@ -123,9 +127,10 @@
             // 
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.btnQlDocGia);
-            this.panel2.Location = new System.Drawing.Point(0, 101);
+            this.panel2.Location = new System.Drawing.Point(0, 124);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(240, 45);
+            this.panel2.Size = new System.Drawing.Size(320, 55);
             this.panel2.TabIndex = 1;
             // 
             // btnDangXuat
@@ -133,18 +138,20 @@
             this.btnDangXuat.AutoSize = true;
             this.btnDangXuat.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.Location = new System.Drawing.Point(55, 14);
+            this.btnDangXuat.Location = new System.Drawing.Point(73, 17);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(99, 18);
+            this.btnDangXuat.Size = new System.Drawing.Size(126, 25);
             this.btnDangXuat.TabIndex = 0;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(9, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox3.Size = new System.Drawing.Size(53, 49);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
@@ -153,9 +160,10 @@
             this.lblChucVu.AutoSize = true;
             this.lblChucVu.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChucVu.ForeColor = System.Drawing.Color.White;
-            this.lblChucVu.Location = new System.Drawing.Point(94, 59);
+            this.lblChucVu.Location = new System.Drawing.Point(125, 73);
+            this.lblChucVu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChucVu.Name = "lblChucVu";
-            this.lblChucVu.Size = new System.Drawing.Size(68, 16);
+            this.lblChucVu.Size = new System.Drawing.Size(92, 20);
             this.lblChucVu.TabIndex = 6;
             this.lblChucVu.Text = "NhanVien";
             // 
@@ -164,17 +172,19 @@
             this.lblHoten.AutoSize = true;
             this.lblHoten.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHoten.ForeColor = System.Drawing.Color.White;
-            this.lblHoten.Location = new System.Drawing.Point(94, 77);
+            this.lblHoten.Location = new System.Drawing.Point(125, 95);
+            this.lblHoten.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoten.Name = "lblHoten";
-            this.lblHoten.Size = new System.Drawing.Size(113, 18);
+            this.lblHoten.Size = new System.Drawing.Size(146, 25);
             this.lblHoten.TabIndex = 5;
             this.lblHoten.Text = "Bùi Thành B";
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(85, 92);
+            this.pictureBox4.Size = new System.Drawing.Size(113, 113);
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
             // 
@@ -182,9 +192,10 @@
             // 
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.btnDangXuat);
-            this.panel3.Location = new System.Drawing.Point(0, 634);
+            this.panel3.Location = new System.Drawing.Point(4, 248);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(240, 45);
+            this.panel3.Size = new System.Drawing.Size(320, 55);
             this.panel3.TabIndex = 3;
             // 
             // pnlSide
@@ -199,24 +210,27 @@
             this.pnlSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSide.Font = new System.Drawing.Font("Verdana", 12F);
             this.pnlSide.Location = new System.Drawing.Point(0, 0);
+            this.pnlSide.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSide.Name = "pnlSide";
-            this.pnlSide.Size = new System.Drawing.Size(240, 681);
+            this.pnlSide.Size = new System.Drawing.Size(320, 838);
             this.pnlSide.TabIndex = 3;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnQLNV);
-            this.panel1.Location = new System.Drawing.Point(3, 150);
+            this.panel1.Location = new System.Drawing.Point(4, 185);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(240, 45);
+            this.panel1.Size = new System.Drawing.Size(320, 55);
             this.panel1.TabIndex = 7;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(9, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(53, 49);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -225,25 +239,28 @@
             this.btnQLNV.AutoSize = true;
             this.btnQLNV.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQLNV.ForeColor = System.Drawing.Color.White;
-            this.btnQLNV.Location = new System.Drawing.Point(55, 14);
+            this.btnQLNV.Location = new System.Drawing.Point(73, 17);
+            this.btnQLNV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnQLNV.Name = "btnQLNV";
-            this.btnQLNV.Size = new System.Drawing.Size(164, 18);
+            this.btnQLNV.Size = new System.Drawing.Size(213, 25);
             this.btnQLNV.TabIndex = 0;
             this.btnQLNV.Text = "Quản lý nhân viên";
             this.btnQLNV.Click += new System.EventHandler(this.btnQLNV_Click);
             // 
             // frmMain_NhanVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1685, 838);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSide);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain_NhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain_NhanVien";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_NhanVien_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();

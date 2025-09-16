@@ -69,6 +69,7 @@ namespace LMSProject.Forms
             DesignHelper.hoverLabel(btnQlDocGia);
             DesignHelper.hoverLabel(btnQLNV);
             DesignHelper.hoverLabel(btnDangXuat);
+
         }
     }
 }

@@ -15,12 +15,12 @@ namespace LMSProject.Services
             _dbHelper = new DbHelper();
         }
 
-        public List<NhanVien> GetAllNhanVien()
-        {
-            string sql = "SELECT * FROM NhanVien ORDER BY IdNV DESC";
-            DataTable dt = _dbHelper.ExecuteReader(sql);
-            return ConvertDataTableToList(dt);
-        }
+        //public List<NhanVien> GetAllNhanVien()
+        //{
+        //    string sql = "SELECT * FROM NhanVien ORDER BY IdNV DESC";
+        //    DataTable dt = _dbHelper.ExecuteReader(sql);
+        //    return ConvertDataTableToList(dt);
+        //}
 
         public DataTable GetNhanVienDetailsView()
         {
@@ -74,26 +74,36 @@ namespace LMSProject.Services
             int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
             return rowsAffected > 0;
         }
-
-        private List<NhanVien> ConvertDataTableToList(DataTable dt)
+        public bool KhoaChucNang(int id)
         {
-            List<NhanVien> nhanViens = new List<NhanVien>();
-            foreach (DataRow row in dt.Rows)
+            string spName = "sp_Admin_SetDocGiaEditLock";
+            var parameters = new Dictionary<string, object>
             {
-                NhanVien nv = new NhanVien
-                {
-                    IdNV = Convert.ToInt32(row["IdNV"]),
-                    MaNV = row["MaNV"].ToString(),
-                    MaTK = row["MaTK"] != DBNull.Value ? Convert.ToInt32(row["MaTK"]) : (int?)null,
-                    HoTen = row["HoTen"].ToString(),
-                    NgaySinh = row["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(row["NgaySinh"]) : (DateTime?)null,
-                    Email = row["Email"].ToString(),
-                    SoDienThoai = row["SoDienThoai"].ToString(),
-                    ChucVu = row["ChucVu"].ToString()
-                };
-                nhanViens.Add(nv);
-            }
-            return nhanViens;
+                { "@IdNV", id },
+            };
+
+            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+            return rowsAffected > 0;
         }
+        //private List<NhanVien> ConvertDataTableToList(DataTable dt)
+        //{
+        //    List<NhanVien> nhanViens = new List<NhanVien>();
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        NhanVien nv = new NhanVien
+        //        {
+        //            IdNV = Convert.ToInt32(row["IdNV"]),
+        //            MaNV = row["MaNV"].ToString(),
+        //            MaTK = row["MaTK"] != DBNull.Value ? Convert.ToInt32(row["MaTK"]) : (int?)null,
+        //            HoTen = row["HoTen"].ToString(),
+        //            NgaySinh = row["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(row["NgaySinh"]) : (DateTime?)null,
+        //            Email = row["Email"].ToString(),
+        //            SoDienThoai = row["SoDienThoai"].ToString(),
+        //            ChucVu = row["ChucVu"].ToString()
+        //        };
+        //        nhanViens.Add(nv);
+        //    }
+        //    return nhanViens;
+        //}
     }
 }

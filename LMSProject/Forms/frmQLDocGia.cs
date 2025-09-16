@@ -23,14 +23,9 @@ namespace LMSProject.Forms
 
         private void frmQLDocGia_Load(object sender, EventArgs e)
         {
-            if (UserService.CurrentUser.VaiTro == 0)
-                btnKhoaChucNang.Visible = true;
-            //docGiaList = docGiaService.GetAllDocGiaList();
-            if (UserService.CurrentUser.VaiTro == 0)
-                btnKhoaChucNang.Visible = true;
-            else
-                btnKhoaChucNang.Visible = false;
             dgvDocGia.DataSource = docGiaService.GetAllDocGia();
+            dgvDocGia.AllowUserToAddRows = false;
+
         }
 
         private void txtTuKhoa_TextChanged(object sender, EventArgs e)
@@ -79,30 +74,82 @@ namespace LMSProject.Forms
             dgvDocGia.DataSource = docGiaService.GetAllDocGia();
 
         }
-        private void btnKhoaChucNang_Click(object sender, EventArgs e)
-        {
-
-        }
         private void dgvDocGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-
+            int iD = int.Parse(dgvDocGia.Rows[e.RowIndex].Cells["ID"].Value?.ToString());
             string maDG = dgvDocGia.Rows[e.RowIndex].Cells["MaDG"].Value.ToString();
+            string hoTen = dgvDocGia.Rows[e.RowIndex].Cells["HoTen"].Value.ToString();
+            string diaChi = dgvDocGia.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
+            string soDienThoai = dgvDocGia.Rows[e.RowIndex].Cells["SoDienThoai"].Value.ToString();
+            string email = dgvDocGia.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+            DateTime ngaySinh = Convert.ToDateTime(dgvDocGia.Rows[e.RowIndex].Cells["NgaySinh"].Value);
+            DateTime ngayDangKy = Convert.ToDateTime(dgvDocGia.Rows[e.RowIndex].Cells["NgayDangKy"].Value);
+            DateTime ngayHetHan = Convert.ToDateTime(dgvDocGia.Rows[e.RowIndex].Cells["NgayHetHan"].Value);
+            string trangThai = dgvDocGia.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+
             if (dgvDocGia.Columns[e.ColumnIndex].Name == "Edit")
             {
+                DocGia editDocGia = new DocGia(iD, hoTen, diaChi, soDienThoai, email, ngaySinh, ngayDangKy, ngayHetHan, trangThai);
+                frmSuaDocGia frmSuaDocGia = new frmSuaDocGia(editDocGia);
+                frmSuaDocGia.ShowDialog();
 
-                //DocGia editDocGia = new
             }
             else if (dgvDocGia.Columns[e.ColumnIndex].Name == "Delete")
             {
-                //msg xoa
+                DialogResult result = MessageBox.Show(
+                    "Bạn có muốn xóa đọc giả này?",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (docGiaService.DeleteDocGia(iD))
+                        {
+                            MessageBox.Show("Xóa đọc giả thành công");
+                            dgvDocGia.DataSource = docGiaService.GetAllDocGia();
+                        }
+                    }
+                    catch (System.Data.SqlClient.SqlException ex)
+                    {
+                        if (ex.Number == 277) // Permission denied
+                        {
+                            MessageBox.Show("Bạn không có quyền xóa đọc giả này!",
+                                            "Lỗi quyền hạn",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã xảy ra lỗi SQL: " + ex.Message,
+                                            "Lỗi",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi hệ thống: " + ex.Message,
+                                        "Lỗi",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                    }
+                }
             }
+
+
             else if (dgvDocGia.Columns[e.ColumnIndex].Name == "MaDG")
             {
                 txtTuKhoa.Text = maDG;
             }
         }
 
+        private void btnKhoaChucNang_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

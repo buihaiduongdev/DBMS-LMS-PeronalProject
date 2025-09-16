@@ -69,5 +69,10 @@ namespace LMSProject.Forms
             frmQLDocGia frmQLDocGia = new frmQLDocGia();
             OpenChildForm(frmQLDocGia);
         }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

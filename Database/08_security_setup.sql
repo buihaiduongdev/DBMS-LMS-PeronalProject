@@ -47,6 +47,8 @@ GRANT SELECT ON OBJECT::TaiKhoan TO login_user;
 GRANT SELECT ON OBJECT::NhanVien TO login_user;
 
 -- Quyen cho RoleNhanVien: Them/Sua/Sp/Fn doc gia
+GRANT SELECT ON OBJECT::TaiKhoan TO login_user;
+GRANT SELECT ON OBJECT::NhanVien TO login_user;
 GRANT EXECUTE ON OBJECT::sp_InsertDocGia TO RoleNhanVien;
 GRANT EXECUTE ON OBJECT::sp_UpdateDocGia TO RoleNhanVien;
 GRANT EXECUTE ON OBJECT::sp_GiaHanTheDocGia TO RoleNhanVien;
@@ -58,12 +60,16 @@ GRANT SELECT, INSERT, UPDATE ON OBJECT::DocGia TO RoleNhanVien;
 
 -- Quyen cho RoleQuanLy: Co them quyen Xoa va Gia han the doc gia
 -- (Da ke thua quyen Them/Sua tu RoleNhanVien)
+GRANT SELECT ON OBJECT::TaiKhoan TO login_user;
+GRANT SELECT ON OBJECT::NhanVien TO login_user;
 GRANT EXECUTE ON OBJECT::sp_DeleteDocGia TO RoleQuanLy; -- Chi QuanLy moi duoc xoa
 GRANT SELECT ON OBJECT::vw_ThongTinNhanVienChiTiet TO RoleQuanLy;
 GRANT DELETE ON OBJECT::DocGia TO RoleQuanLy;
 
 -- Quyen cho RoleAdmin: Full CRUD cho NhanVien
 -- (Da ke thua toan bo quyen cua QuanLy)
+GRANT SELECT ON OBJECT::TaiKhoan TO login_user;
+GRANT SELECT ON OBJECT::NhanVien TO login_user;
 GRANT EXECUTE ON OBJECT::sp_InsertNhanVien TO RoleAdmin;
 GRANT EXECUTE ON OBJECT::sp_UpdateNhanVien TO RoleAdmin;
 GRANT EXECUTE ON OBJECT::sp_DeleteNhanVien TO RoleAdmin;
