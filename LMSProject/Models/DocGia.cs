@@ -4,6 +4,30 @@ namespace LMSProject.Models
 {
     public class DocGia
     {
+        public DocGia(string hoTen, string diaChi, string email, string soDienThoai, DateTime? ngaySinh, DateTime ngayDangKy, DateTime ngayHetHan)
+        {
+            HoTen = hoTen;
+            NgaySinh = ngaySinh;
+            DiaChi = diaChi;
+            Email = email;
+            SoDienThoai = soDienThoai;
+            NgayDangKy = ngayDangKy;
+            NgayHetHan = ngayHetHan;
+        }
+
+        public DocGia(int iD, string hoTen, DateTime? ngaySinh, string diaChi, string email, string soDienThoai, DateTime ngayDangKy, DateTime ngayHetHan, string trangThai)
+        {
+            ID = iD;
+            HoTen = hoTen;
+            NgaySinh = ngaySinh;
+            DiaChi = diaChi;
+            Email = email;
+            SoDienThoai = soDienThoai;
+            NgayDangKy = ngayDangKy;
+            NgayHetHan = ngayHetHan;
+            TrangThai = trangThai;
+        }
+
         public int ID { get; set; }
         public string MaDG { get; set; }
         public string HoTen { get; set; }
@@ -14,5 +38,6 @@ namespace LMSProject.Models
         public DateTime NgayDangKy { get; set; }
         public DateTime NgayHetHan { get; set; }
         public string TrangThai { get; set; }
+
     }
 }

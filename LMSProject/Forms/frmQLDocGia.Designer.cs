@@ -37,6 +37,7 @@
             this.btnKiemTra = new System.Windows.Forms.Button();
             this.btnKhoaChucNang = new System.Windows.Forms.Button();
             this.btnDanhSachSHH = new System.Windows.Forms.Button();
+            this.btnLamMoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocGia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +105,7 @@
             // 
             // btnKhoaChucNang
             // 
-            this.btnKhoaChucNang.Location = new System.Drawing.Point(829, 109);
+            this.btnKhoaChucNang.Location = new System.Drawing.Point(829, 106);
             this.btnKhoaChucNang.Name = "btnKhoaChucNang";
             this.btnKhoaChucNang.Size = new System.Drawing.Size(135, 23);
             this.btnKhoaChucNang.TabIndex = 5;
@@ -123,11 +124,22 @@
             this.btnDanhSachSHH.UseVisualStyleBackColor = true;
             this.btnDanhSachSHH.Click += new System.EventHandler(this.btnDanhSachSHH_Click);
             // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.Location = new System.Drawing.Point(580, 109);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(85, 23);
+            this.btnLamMoi.TabIndex = 7;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            // 
             // frmQLDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 619);
+            this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.btnDanhSachSHH);
             this.Controls.Add(this.btnKhoaChucNang);
             this.Controls.Add(this.btnKiemTra);
@@ -156,5 +168,6 @@
         private System.Windows.Forms.Button btnKiemTra;
         private System.Windows.Forms.Button btnKhoaChucNang;
         private System.Windows.Forms.Button btnDanhSachSHH;
+        private System.Windows.Forms.Button btnLamMoi;
     }
 }

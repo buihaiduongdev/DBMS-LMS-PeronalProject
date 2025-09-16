@@ -15,12 +15,12 @@ namespace LMSProject.Services
             _dbHelper = new DbHelper();
         }
 
-        public List<DocGia> GetAllDocGiaList()
-        {
-            string sql = "SELECT * FROM DocGia ORDER BY ID DESC";
-            DataTable dt = _dbHelper.ExecuteReader(sql);
-            return ConvertDataTableToList(dt);
-        }
+        //public List<DocGia> GetAllDocGiaList()
+        //{
+        //    string sql = "SELECT * FROM DocGia ORDER BY ID DESC";
+        //    DataTable dt = _dbHelper.ExecuteReader(sql);
+        //    return ConvertDataTableToList(dt);
+        //}
         public DataTable GetAllDocGia()
         {
             string sql = "SELECT * FROM DocGia ORDER BY ID DESC";
@@ -112,27 +112,27 @@ namespace LMSProject.Services
             return rowsAffected > 0;
         }
 
-        private List<DocGia> ConvertDataTableToList(DataTable dt)
-        {
-            List<DocGia> docGias = new List<DocGia>();
-            foreach (DataRow row in dt.Rows)
-            {
-                DocGia dg = new DocGia
-                {
-                    ID = Convert.ToInt32(row["ID"]),
-                    MaDG = row["MaDG"].ToString(),
-                    HoTen = row["HoTen"].ToString(),
-                    NgaySinh = row["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(row["NgaySinh"]) : (DateTime?)null,
-                    DiaChi = row["DiaChi"].ToString(),
-                    Email = row["Email"].ToString(),
-                    SoDienThoai = row["SoDienThoai"].ToString(),
-                    NgayDangKy = Convert.ToDateTime(row["NgayDangKy"]),
-                    NgayHetHan = Convert.ToDateTime(row["NgayHetHan"]),
-                    TrangThai = row["TrangThai"].ToString()
-                };
-                docGias.Add(dg);
-            }
-            return docGias;
-        }
+        //private List<DocGia> ConvertDataTableToList(DataTable dt)
+        //{
+        //    List<DocGia> docGias = new List<DocGia>();
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        DocGia dg = new DocGia
+        //        {
+        //            ID = Convert.ToInt32(row["ID"]),
+        //            MaDG = row["MaDG"].ToString(),
+        //            HoTen = row["HoTen"].ToString(),
+        //            NgaySinh = row["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(row["NgaySinh"]) : (DateTime?)null,
+        //            DiaChi = row["DiaChi"].ToString(),
+        //            Email = row["Email"].ToString(),
+        //            SoDienThoai = row["SoDienThoai"].ToString(),
+        //            NgayDangKy = Convert.ToDateTime(row["NgayDangKy"]),
+        //            NgayHetHan = Convert.ToDateTime(row["NgayHetHan"]),
+        //            TrangThai = row["TrangThai"].ToString()
+        //        };
+        //        docGias.Add(dg);
+        //    }
+        //    return docGias;
+        //}
     }
 }

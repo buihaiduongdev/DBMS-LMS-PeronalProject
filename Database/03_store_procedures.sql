@@ -30,7 +30,8 @@ END;
 GO
 
 CREATE OR ALTER PROCEDURE sp_InsertNhanVien
-    @MaTK INT = NULL,
+    @TenDangNhap VARCHAR(50),
+    @MatKhauMaHoa VARCHAR(255),
     @HoTen NVARCHAR(50),
     @NgaySinh DATE,
     @Email VARCHAR(50),
@@ -38,19 +39,30 @@ CREATE OR ALTER PROCEDURE sp_InsertNhanVien
     @ChucVu NVARCHAR(50)
 AS
 BEGIN
+    SET NOCOUNT ON;
     BEGIN TRANSACTION;
     BEGIN TRY
+        DECLARE @MaTK INT;
+
+        -- 1. Tạo tài khoản
+        INSERT INTO TaiKhoan (TenDangNhap, MatKhauMaHoa, VaiTro, TrangThai)
+        VALUES (@TenDangNhap, @MatKhauMaHoa, 1, 1);
+
+        SET @MaTK = SCOPE_IDENTITY();
+
+        -- 2. Tạo nhân viên gắn với tài khoản
         INSERT INTO NhanVien(MaTK, HoTen, NgaySinh, Email, SoDienThoai, ChucVu)
         VALUES(@MaTK, @HoTen, @NgaySinh, @Email, @SoDienThoai, @ChucVu);
-        
+
         COMMIT TRANSACTION;
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
-        THROW;
+	THROW;
     END CATCH
 END;
 GO
+
 
 CREATE OR ALTER PROCEDURE sp_UpdateDocGia
     @ID INT,
@@ -138,18 +150,30 @@ CREATE OR ALTER PROCEDURE sp_DeleteNhanVien
     @IdNV INT
 AS
 BEGIN
+    SET NOCOUNT ON;
     BEGIN TRANSACTION;
     BEGIN TRY
+        DECLARE @MaTK INT;
+
+        -- Lấy MaTK gắn với nhân viên
+        SELECT @MaTK = MaTK FROM NhanVien WHERE IdNV = @IdNV;
+
+        -- Xóa nhân viên
         DELETE FROM NhanVien WHERE IdNV = @IdNV;
+
+        -- Xóa tài khoản (nếu tồn tại)
+        IF @MaTK IS NOT NULL
+            DELETE FROM TaiKhoan WHERE MaTK = @MaTK;
 
         COMMIT TRANSACTION;
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
-        THROW;
+	THROW;
     END CATCH
 END;
 GO
+
 
 CREATE OR ALTER PROCEDURE sp_GiaHanTheDocGia (
     @MaDG VARCHAR(50),

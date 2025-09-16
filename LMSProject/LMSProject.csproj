@@ -76,6 +76,12 @@
     <Compile Include="Forms\frmQLNhanVien.Designer.cs">
       <DependentUpon>frmQLNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fromThemMoiDG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fromThemMoiDG.Designer.cs">
+      <DependentUpon>fromThemMoiDG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DocGia.cs" />
     <Compile Include="Models\NhanVien.cs" />
     <Compile Include="Models\User.cs" />
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQLDocGia.resx">
       <DependentUpon>frmQLDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fromThemMoiDG.resx">
+      <DependentUpon>fromThemMoiDG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

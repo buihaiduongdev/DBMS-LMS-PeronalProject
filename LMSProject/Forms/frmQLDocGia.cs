@@ -18,14 +18,18 @@ namespace LMSProject.Forms
         {
             InitializeComponent();
         }
-        private List<DocGia> docGiaList;
+        //private List<DocGia> docGiaList;
         DocGiaService docGiaService = new DocGiaService();
 
         private void frmQLDocGia_Load(object sender, EventArgs e)
         {
             if (UserService.CurrentUser.VaiTro == 0)
                 btnKhoaChucNang.Visible = true;
-            docGiaList = docGiaService.GetAllDocGiaList();
+            //docGiaList = docGiaService.GetAllDocGiaList();
+            if (UserService.CurrentUser.VaiTro == 0)
+                btnKhoaChucNang.Visible = true;
+            else
+                btnKhoaChucNang.Visible = false;
             dgvDocGia.DataSource = docGiaService.GetAllDocGia();
         }
 
@@ -37,28 +41,44 @@ namespace LMSProject.Forms
 
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
-            //mo form con add
+            fromThemMoiDG fromThemMoiDG = new fromThemMoiDG();
+            fromThemMoiDG.ShowDialog();
         }
 
 
         private void btnKiemTra_Click(object sender, EventArgs e)
         {
             string maDG = txtTuKhoa.Text;
-            MessageBox.Show(docGiaService.KiemTraTrangThaiThe(maDG));
+            if (maDG.Equals(string.Empty))
+                MessageBox.Show("Vui lòng nhập mã đọc giả");
+            else
+                MessageBox.Show(docGiaService.KiemTraTrangThaiThe(maDG));
         }
 
         private void btnGiaHan_Click(object sender, EventArgs e)
         {
             string maDG = txtTuKhoa.Text;
-            if (docGiaService.GiaHanTheDocGia(maDG, 3)) {
-                MessageBox.Show($"Gia hạn thành công cho đọc giả {maDG} 3 tháng");
+            if (maDG.Equals(string.Empty))
+                MessageBox.Show("Vui lòng nhập mã đọc giả");
+            else
+            {
+                if (docGiaService.GiaHanTheDocGia(maDG, 3))
+                    MessageBox.Show($"Gia hạn thành công cho đọc giả {maDG} 3 tháng");
+                else
+                    MessageBox.Show("Gia hạn không thành công");
+
             }
+
         }
         private void btnDanhSachSHH_Click(object sender, EventArgs e)
         {
             dgvDocGia.DataSource =  docGiaService.GetDocGiaSapHetHan();
         }
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            dgvDocGia.DataSource = docGiaService.GetAllDocGia();
 
+        }
         private void btnKhoaChucNang_Click(object sender, EventArgs e)
         {
 
@@ -70,7 +90,8 @@ namespace LMSProject.Forms
             string maDG = dgvDocGia.Rows[e.RowIndex].Cells["MaDG"].Value.ToString();
             if (dgvDocGia.Columns[e.ColumnIndex].Name == "Edit")
             {
-                //mo form con edit
+
+                //DocGia editDocGia = new
             }
             else if (dgvDocGia.Columns[e.ColumnIndex].Name == "Delete")
             {

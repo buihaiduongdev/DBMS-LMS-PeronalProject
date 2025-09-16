@@ -7,12 +7,20 @@
       "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\services\\docgiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:services\\docgiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\fromthemmoidg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\fromthemmoidg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\fromthemmoidg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\fromthemmoidg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\models\\docgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:models\\docgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,14 +43,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DocGiaService.cs",
-              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\DocGiaService.cs",
-              "RelativeDocumentMoniker": "Services\\DocGiaService.cs",
-              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\DocGiaService.cs",
-              "RelativeToolTip": "Services\\DocGiaService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAowCsAAAA6AAAAAAAAAA==",
+              "Title": "frmQLDocGia.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs",
+              "RelativeDocumentMoniker": "Forms\\frmQLDocGia.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs [Design]",
+              "RelativeToolTip": "Forms\\frmQLDocGia.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T17:29:38.862Z",
+              "WhenOpened": "2025-09-16T04:41:21.996Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DocGia.cs",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Models\\DocGia.cs",
+              "RelativeDocumentMoniker": "Models\\DocGia.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Models\\DocGia.cs",
+              "RelativeToolTip": "Models\\DocGia.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T04:31:39.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "fromThemMoiDG.cs",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\fromThemMoiDG.cs",
+              "RelativeDocumentMoniker": "Forms\\fromThemMoiDG.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\fromThemMoiDG.cs",
+              "RelativeToolTip": "Forms\\fromThemMoiDG.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAUwD0AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T04:22:54.635Z",
               "EditorCaption": ""
             },
             {
@@ -53,21 +86,21 @@
               "RelativeDocumentMoniker": "Forms\\frmQLDocGia.cs",
               "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs",
               "RelativeToolTip": "Forms\\frmQLDocGia.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAswFAAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAA9wEMAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T17:46:25.284Z",
+              "WhenOpened": "2025-09-16T04:22:06.488Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmQLDocGia.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs",
-              "RelativeDocumentMoniker": "Forms\\frmQLDocGia.cs",
-              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs [Design]",
-              "RelativeToolTip": "Forms\\frmQLDocGia.cs [Design]",
+              "DocumentIndex": 3,
+              "Title": "fromThemMoiDG.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\fromThemMoiDG.cs",
+              "RelativeDocumentMoniker": "Forms\\fromThemMoiDG.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\fromThemMoiDG.cs [Design]",
+              "RelativeToolTip": "Forms\\fromThemMoiDG.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T17:28:33.956Z",
+              "WhenOpened": "2025-09-16T04:08:05.539Z",
               "EditorCaption": " [Design]"
             }
           ]
