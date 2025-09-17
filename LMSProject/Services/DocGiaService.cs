@@ -1,8 +1,9 @@
-using LMSProject.Models;
+﻿using LMSProject.Models;
 using LMSProject.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 
 namespace LMSProject.Services
 {
@@ -15,12 +16,6 @@ namespace LMSProject.Services
             _dbHelper = new DbHelper();
         }
 
-        //public List<DocGia> GetAllDocGiaList()
-        //{
-        //    string sql = "SELECT * FROM DocGia ORDER BY ID DESC";
-        //    DataTable dt = _dbHelper.ExecuteReader(sql);
-        //    return ConvertDataTableToList(dt);
-        //}
         public DataTable GetAllDocGia()
         {
             string sql = "SELECT * FROM DocGia ORDER BY ID ASC";
@@ -58,8 +53,16 @@ namespace LMSProject.Services
                 { "@NgayDangKy", docGia.NgayDangKy },
                 { "@NgayHetHan", docGia.NgayHetHan }
             };
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
-            return rowsAffected > 0;
+            try
+            {
+                int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+                return rowsAffected != 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Số điện thoại hoặc Email đã được đăng ký. Vui lòng nhập lại!");
+                return false;
+            }
         }
 
         public bool UpdateDocGia(DocGia docGia)
@@ -78,8 +81,16 @@ namespace LMSProject.Services
                 { "@TrangThai", docGia.TrangThai }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
-            return rowsAffected > 0;
+            try
+            {
+                int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+                return rowsAffected != 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Số điện thoại hoặc Email đã được đăng ký. Vui lòng nhập lại!");
+                return false;
+            }
         }
 
         public bool DeleteDocGia(int docGiaId)
@@ -90,8 +101,20 @@ namespace LMSProject.Services
                 { "@ID", docGiaId }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
-            return rowsAffected > 0;
+            try
+            {
+                int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+                return rowsAffected > 0;
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                MessageBox.Show("Bạn không đủ quyền hạn truy cập: " + ex.Message,
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return false;
+            }
+
         }
 
         public DataTable TimKiemDocGia(string tuKhoa)
@@ -111,28 +134,5 @@ namespace LMSProject.Services
             int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
             return rowsAffected > 0;
         }
-
-        //private List<DocGia> ConvertDataTableToList(DataTable dt)
-        //{
-        //    List<DocGia> docGias = new List<DocGia>();
-        //    foreach (DataRow row in dt.Rows)
-        //    {
-        //        DocGia dg = new DocGia
-        //        {
-        //            ID = Convert.ToInt32(row["ID"]),
-        //            MaDG = row["MaDG"].ToString(),
-        //            HoTen = row["HoTen"].ToString(),
-        //            NgaySinh = row["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(row["NgaySinh"]) : (DateTime?)null,
-        //            DiaChi = row["DiaChi"].ToString(),
-        //            Email = row["Email"].ToString(),
-        //            SoDienThoai = row["SoDienThoai"].ToString(),
-        //            NgayDangKy = Convert.ToDateTime(row["NgayDangKy"]),
-        //            NgayHetHan = Convert.ToDateTime(row["NgayHetHan"]),
-        //            TrangThai = row["TrangThai"].ToString()
-        //        };
-        //        docGias.Add(dg);
-        //    }
-        //    return docGias;
-        //}
     }
 }

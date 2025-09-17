@@ -1,8 +1,12 @@
-using LMSProject.Models;
+﻿using LMSProject.Models;
 using LMSProject.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Windows.Forms;
 
 namespace LMSProject.Services
 {
@@ -14,35 +18,67 @@ namespace LMSProject.Services
         {
             _dbHelper = new DbHelper();
         }
-
-        //public List<NhanVien> GetAllNhanVien()
-        //{
-        //    string sql = "SELECT * FROM NhanVien ORDER BY IdNV DESC";
-        //    DataTable dt = _dbHelper.ExecuteReader(sql);
-        //    return ConvertDataTableToList(dt);
-        //}
+        public DataTable GetAllNhanVien()
+        {
+            string sql = "SELECT * FROM NhanVien nv " +
+                            "JOIN TaiKhoan tk ON nv.MaTK = tk.MaTK " +
+                            "ORDER BY nv.IdNV ASC";
+            try
+            {
+                DataTable dt = _dbHelper.ExecuteReader(sql);
+                return dt;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 229)
+                {
+                    throw new Exception("Bạn không có quyền xóa dữ liệu này.\n" + ex);
+                }
+                throw;
+            }
+        }
 
         public DataTable GetNhanVienDetailsView()
         {
-            string sql = "SELECT * FROM vw_ThongTinNhanVienChiTiet ORDER BY MaNV DESC";
-            return _dbHelper.ExecuteReader(sql);
+            try
+            {
+                string sql = "SELECT * FROM vw_ThongTinNhanVienChiTiet ORDER BY MaNV ASC";
+                return _dbHelper.ExecuteReader(sql);
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 229)
+                {
+                    throw new Exception("Bạn không có quyền xóa dữ liệu này.\n" + ex);
+                }
+                throw;
+            }
+
         }
 
-        public bool InsertNhanVien(NhanVien nhanVien)
+        public bool InsertNhanVien(NhanVien nhanVien, User user)
         {
             string spName = "sp_InsertNhanVien";
             var parameters = new Dictionary<string, object>
             {
-                { "@MaTK", (object)nhanVien.MaTK ?? DBNull.Value },
+                { "@TenDangNhap", user.TenDangNhap },
+                { "@MatKhauMaHoa", user.MatKhauMaHoa},                
                 { "@HoTen", nhanVien.HoTen },
                 { "@NgaySinh", (object)nhanVien.NgaySinh ?? DBNull.Value },
                 { "@Email", nhanVien.Email },
                 { "@SoDienThoai", nhanVien.SoDienThoai },
                 { "@ChucVu", nhanVien.ChucVu }
             };
-
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
-            return rowsAffected > 0;
+            try
+            {
+                int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+                return rowsAffected != 0; 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Tên đăng nhập hoặc Số điện thoại hoặc Email đã được đăng ký. Vui lòng nhập lại!");
+                return false; 
+            }
         }
 
         public bool UpdateNhanVien(NhanVien nhanVien)
@@ -56,10 +92,36 @@ namespace LMSProject.Services
                 { "@Email", nhanVien.Email },
                 { "@SoDienThoai", nhanVien.SoDienThoai },
                 { "@ChucVu", nhanVien.ChucVu },
-                { "@MaTK", (object)nhanVien.MaTK ?? DBNull.Value }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+            try
+            {
+                int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+                return rowsAffected != 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Số điện thoại hoặc Email đã được đăng ký. Vui lòng nhập lại!");
+                return false;
+            }
+        }
+        public bool ResetMatKhauNhanVien(int idNV)
+        {
+            // mật khẩu mặc định "123456" đã mã hóa MD5
+            string defaultPassword = "e10adc3949ba59abbe56e057f20f883e";
+
+             string query = @"
+                UPDATE TaiKhoan
+                SET MatKhauMaHoa = @MatKhau
+                WHERE MaTK = (SELECT MaTK FROM NhanVien WHERE IdNV = @IdNV)";
+
+                    var parameters = new Dictionary<string, object>
+            {
+                { "@MatKhau", defaultPassword },
+                { "@IdNV", idNV }
+            };
+
+            int rowsAffected = _dbHelper.ExecuteNonQuery(query, parameters, isStoredProcedure: false);
             return rowsAffected > 0;
         }
 
@@ -71,39 +133,49 @@ namespace LMSProject.Services
                 { "@IdNV", idNV }
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
-            return rowsAffected > 0;
+            try
+            {
+                int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+                return rowsAffected != 0;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 229)
+                {
+                    throw new Exception("Bạn không có quyền xóa dữ liệu này.\n" + ex);
+                }
+
+                if (ex.Number == 547)
+                {
+                    throw new Exception("Không thể xóa vì dữ liệu đang được sử dụng ở bảng khác.");
+                }
+
+                throw;
+            }
         }
-        public bool KhoaChucNang(int id)
+        public DataTable TimKiemNhanVien(string tuKhoa)
+        {
+            return _dbHelper.ExecuteTableFunction("dbo.fn_TimKiemNhanVien", new Dictionary<string, object> { { "@TuKhoa ", tuKhoa } });
+        }
+
+        public bool KhoaChucNang(int trangThai)
         {
             string spName = "sp_Admin_SetDocGiaEditLock";
             var parameters = new Dictionary<string, object>
             {
-                { "@IdNV", id },
+                { "@IsLocked", trangThai },
             };
 
-            int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
-            return rowsAffected > 0;
+            try
+            {
+                int rowsAffected = _dbHelper.ExecuteNonQuery(spName, parameters, isStoredProcedure: true);
+                return rowsAffected != 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
         }
-        //private List<NhanVien> ConvertDataTableToList(DataTable dt)
-        //{
-        //    List<NhanVien> nhanViens = new List<NhanVien>();
-        //    foreach (DataRow row in dt.Rows)
-        //    {
-        //        NhanVien nv = new NhanVien
-        //        {
-        //            IdNV = Convert.ToInt32(row["IdNV"]),
-        //            MaNV = row["MaNV"].ToString(),
-        //            MaTK = row["MaTK"] != DBNull.Value ? Convert.ToInt32(row["MaTK"]) : (int?)null,
-        //            HoTen = row["HoTen"].ToString(),
-        //            NgaySinh = row["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(row["NgaySinh"]) : (DateTime?)null,
-        //            Email = row["Email"].ToString(),
-        //            SoDienThoai = row["SoDienThoai"].ToString(),
-        //            ChucVu = row["ChucVu"].ToString()
-        //        };
-        //        nhanViens.Add(nv);
-        //    }
-        //    return nhanViens;
-        //}
     }
 }

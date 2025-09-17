@@ -33,3 +33,19 @@ RETURN
         Email LIKE '%' + @TuKhoa + '%'
 );
 GO
+
+CREATE OR ALTER FUNCTION fn_TimKiemNhanVien (@TuKhoa NVARCHAR(100))
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT *
+    FROM vw_ThongTinNhanVienChiTiet
+    WHERE
+        MaNV LIKE '%' + @TuKhoa + '%' OR
+        HoTen LIKE '%' + @TuKhoa + '%' OR
+        SoDienThoai LIKE '%' + @TuKhoa + '%' OR
+        Email LIKE '%' + @TuKhoa + '%'
+);
+GO
+

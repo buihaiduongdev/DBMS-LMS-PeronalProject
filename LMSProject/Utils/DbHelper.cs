@@ -35,7 +35,7 @@ namespace LMSProject.Utils
                 }
                 else if (currentUser.VaiTro == 1) // Staff role
                 {
-                    if (currentUser.ChucVu == "Thu Thu")
+                    if (currentUser.ChucVu == "ThuThu")
                     {
                         sqlUsername = "userQL"; 
                     }
@@ -44,7 +44,6 @@ namespace LMSProject.Utils
                         sqlUsername = "userNV";
                     }
                 }
-                
                 builder.UserID = sqlUsername;
                 builder.Password = sqlPassword;
             }

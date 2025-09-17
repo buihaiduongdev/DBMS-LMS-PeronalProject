@@ -18,14 +18,12 @@ namespace LMSProject.Forms
         {
             InitializeComponent();
         }
-        //private List<DocGia> docGiaList;
         DocGiaService docGiaService = new DocGiaService();
 
         private void frmQLDocGia_Load(object sender, EventArgs e)
         {
             dgvDocGia.DataSource = docGiaService.GetAllDocGia();
             dgvDocGia.AllowUserToAddRows = false;
-
         }
 
         private void txtTuKhoa_TextChanged(object sender, EventArgs e)
@@ -76,6 +74,8 @@ namespace LMSProject.Forms
         }
         private void dgvDocGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
             int iD = int.Parse(dgvDocGia.Rows[e.RowIndex].Cells["ID"].Value?.ToString());
             string maDG = dgvDocGia.Rows[e.RowIndex].Cells["MaDG"].Value.ToString();
             string hoTen = dgvDocGia.Rows[e.RowIndex].Cells["HoTen"].Value.ToString();
@@ -105,38 +105,12 @@ namespace LMSProject.Forms
 
                 if (result == DialogResult.Yes)
                 {
-                    try
+                    if (docGiaService.DeleteDocGia(iD))
                     {
-                        if (docGiaService.DeleteDocGia(iD))
-                        {
-                            MessageBox.Show("Xóa đọc giả thành công");
-                            dgvDocGia.DataSource = docGiaService.GetAllDocGia();
-                        }
+                        MessageBox.Show("Xóa đọc giả thành công");
+                        dgvDocGia.DataSource = docGiaService.GetAllDocGia();
                     }
-                    catch (System.Data.SqlClient.SqlException ex)
-                    {
-                        if (ex.Number == 277) // Permission denied
-                        {
-                            MessageBox.Show("Bạn không có quyền xóa đọc giả này!",
-                                            "Lỗi quyền hạn",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Đã xảy ra lỗi SQL: " + ex.Message,
-                                            "Lỗi",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi hệ thống: " + ex.Message,
-                                        "Lỗi",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Error);
-                    }
+                    
                 }
             }
 
@@ -147,9 +121,6 @@ namespace LMSProject.Forms
             }
         }
 
-        private void btnKhoaChucNang_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

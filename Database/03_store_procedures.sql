@@ -29,41 +29,6 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROCEDURE sp_InsertNhanVien
-    @TenDangNhap VARCHAR(50),
-    @MatKhauMaHoa VARCHAR(255),
-    @HoTen NVARCHAR(50),
-    @NgaySinh DATE,
-    @Email VARCHAR(50),
-    @SoDienThoai VARCHAR(20),
-    @ChucVu NVARCHAR(50)
-AS
-BEGIN
-    SET NOCOUNT ON;
-    BEGIN TRANSACTION;
-    BEGIN TRY
-        DECLARE @MaTK INT;
-
-        -- 1. Tạo tài khoản
-        INSERT INTO TaiKhoan (TenDangNhap, MatKhauMaHoa, VaiTro, TrangThai)
-        VALUES (@TenDangNhap, @MatKhauMaHoa, 1, 1);
-
-        SET @MaTK = SCOPE_IDENTITY();
-
-        -- 2. Tạo nhân viên gắn với tài khoản
-        INSERT INTO NhanVien(MaTK, HoTen, NgaySinh, Email, SoDienThoai, ChucVu)
-        VALUES(@MaTK, @HoTen, @NgaySinh, @Email, @SoDienThoai, @ChucVu);
-
-        COMMIT TRANSACTION;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK TRANSACTION;
-	THROW;
-    END CATCH
-END;
-GO
-
-
 CREATE OR ALTER PROCEDURE sp_UpdateDocGia
     @ID INT,
     @HoTen NVARCHAR(50),
@@ -116,14 +81,47 @@ BEGIN
 END;
 GO
 
+CREATE OR ALTER PROCEDURE sp_InsertNhanVien
+    @TenDangNhap VARCHAR(50),
+    @MatKhauMaHoa VARCHAR(255),
+    @HoTen NVARCHAR(50),
+    @NgaySinh DATE,
+    @Email VARCHAR(50),
+    @SoDienThoai VARCHAR(20),
+    @ChucVu NVARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        DECLARE @MaTK INT;
+
+        -- 1. Tạo tài khoản
+        INSERT INTO TaiKhoan (TenDangNhap, MatKhauMaHoa, VaiTro, TrangThai)
+        VALUES (@TenDangNhap, @MatKhauMaHoa, 1, 1);
+
+        SET @MaTK = SCOPE_IDENTITY();
+
+        -- 2. Tạo nhân viên gắn với tài khoản
+        INSERT INTO NhanVien(MaTK, HoTen, NgaySinh, Email, SoDienThoai, ChucVu)
+        VALUES(@MaTK, @HoTen, @NgaySinh, @Email, @SoDienThoai, @ChucVu);
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+	THROW;
+    END CATCH
+END;
+GO
+
 CREATE OR ALTER PROCEDURE sp_UpdateNhanVien
     @IdNV INT,
     @HoTen NVARCHAR(50),
     @NgaySinh DATE,
     @Email VARCHAR(50),
     @SoDienThoai VARCHAR(20),
-    @ChucVu NVARCHAR(50),
-    @MaTK INT = NULL
+    @ChucVu NVARCHAR(50)
 AS
 BEGIN
     BEGIN TRANSACTION;
@@ -133,8 +131,7 @@ BEGIN
             NgaySinh = @NgaySinh,
             Email = @Email,
             SoDienThoai = @SoDienThoai,
-            ChucVu = @ChucVu,
-            MaTK = @MaTK
+            ChucVu = @ChucVu
         WHERE IdNV = @IdNV;
 
         COMMIT TRANSACTION;
@@ -161,7 +158,7 @@ BEGIN
         -- Xóa nhân viên
         DELETE FROM NhanVien WHERE IdNV = @IdNV;
 
-        -- Xóa tài khoản (nếu tồn tại)
+        -- Xóa tài khoản
         IF @MaTK IS NOT NULL
             DELETE FROM TaiKhoan WHERE MaTK = @MaTK;
 
@@ -204,18 +201,17 @@ END;
 GO
 CREATE OR ALTER PROCEDURE sp_Admin_SetDocGiaEditLock
     @IsLocked BIT
+
 AS
 BEGIN
-
     IF @IsLocked = 1
     BEGIN        
-        -- DENY se ghi de bat ky lenh GRANT nao da co
         DENY INSERT, UPDATE ON OBJECT::DocGia TO RoleNhanVien;
-        
     END
     ELSE
     BEGIN        
         REVOKE INSERT, UPDATE ON OBJECT::DocGia FROM RoleNhanVien;
+        GRANT INSERT, UPDATE ON OBJECT::DocGia TO RoleNhanVien;
     END
 END
 GO

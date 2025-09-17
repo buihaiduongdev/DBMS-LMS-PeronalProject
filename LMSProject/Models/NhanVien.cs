@@ -5,6 +5,25 @@ namespace LMSProject.Models
 
     public class NhanVien
     {
+        public NhanVien(string hoTen, DateTime? ngaySinh, string email, string soDienThoai, string chucVu)
+        {
+            HoTen = hoTen;
+            NgaySinh = ngaySinh;
+            Email = email;
+            SoDienThoai = soDienThoai;
+            ChucVu = chucVu;
+        }
+
+        public NhanVien(int idNV, string hoTen, DateTime? ngaySinh, string email, string soDienThoai, string chucVu)
+        {
+            IdNV = idNV;
+            HoTen = hoTen;
+            NgaySinh = ngaySinh;
+            Email = email;
+            SoDienThoai = soDienThoai;
+            ChucVu = chucVu;
+        }
+
         public int IdNV { get; set; }
         public string MaNV { get; set; }
         public int? MaTK { get; set; }

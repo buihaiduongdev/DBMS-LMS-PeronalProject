@@ -18,12 +18,13 @@ GO
 
 CREATE OR ALTER VIEW vw_ThongTinNhanVienChiTiet AS
 SELECT
+	nv.IdNV,
     nv.MaNV,
     nv.HoTen,
     nv.NgaySinh,
     nv.Email,
     nv.SoDienThoai,
-    tk.VaiTro,
+    nv.ChucVu,
     tk.TrangThai
 FROM
     NhanVien nv

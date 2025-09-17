@@ -82,6 +82,18 @@
     <Compile Include="Forms\frmSuaDocGia.Designer.cs">
       <DependentUpon>frmSuaDocGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSuaNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSuaNhanVien.Designer.cs">
+      <DependentUpon>frmSuaNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmThemMoiNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmThemMoiNV.Designer.cs">
+      <DependentUpon>frmThemMoiNV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fromThemMoiDG.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,8 +130,17 @@
     <EmbeddedResource Include="Forms\frmQLDocGia.resx">
       <DependentUpon>frmQLDocGia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQLNhanVien.resx">
+      <DependentUpon>frmQLNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSuaDocGia.resx">
       <DependentUpon>frmSuaDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSuaNhanVien.resx">
+      <DependentUpon>frmSuaNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmThemMoiNV.resx">
+      <DependentUpon>frmThemMoiNV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fromThemMoiDG.resx">
       <DependentUpon>fromThemMoiDG.cs</DependentUpon>

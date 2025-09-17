@@ -52,6 +52,7 @@ namespace LMSProject.Forms
 
         private void btnQlDocGia_Click(object sender, EventArgs e)
         {
+
             frmQLDocGia frmQLDocGia = new frmQLDocGia();
             OpenChildForm(frmQLDocGia);
         }
@@ -59,8 +60,19 @@ namespace LMSProject.Forms
 
         private void btnQLNV_Click(object sender, EventArgs e)
         {
-            frmQLNhanVien frmQLNhanVien = new frmQLNhanVien();
-            OpenChildForm(frmQLNhanVien);
+            try
+            {
+                frmQLNhanVien frmQLNhanVien = new frmQLNhanVien();
+                OpenChildForm(frmQLNhanVien);
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                MessageBox.Show("Bạn không đủ quyền hạn truy cập: " + ex.Message,
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+
         }
 
         private void frmMain_NhanVien_Load(object sender, EventArgs e)
