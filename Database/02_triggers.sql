@@ -159,14 +159,3 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER TRIGGER trg_InsertTheNhap
-ON The_Nhap
-AFTER INSERT
-AS
-BEGIN
-    UPDATE The_Nhap
-    SET MaTheNhap = 'TN' + RIGHT('000' + CAST(i.IdTN AS VARCHAR(3)), 3)
-    FROM The_Nhap TN
-    INNER JOIN inserted i ON TN.IdTN = i.IdTN;
-END;
-GO
