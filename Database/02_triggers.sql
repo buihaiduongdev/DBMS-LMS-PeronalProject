@@ -1,4 +1,5 @@
-﻿USE QuanLyThuVien;
+
+USE QuanLyThuVien;
 GO
 -------------------------- Bui Hai Duong - Quan Ly Doc Gia --------------------------
 CREATE OR ALTER TRIGGER trg_InsertNV
@@ -38,6 +39,76 @@ BEGIN
     WHERE i.NgayTra > TM.NgayHenTra;
 END;
 GO
+
+CREATE OR ALTER TRIGGER trg_CreateLoginUser
+ON TaiKhoan
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DECLARE @username NVARCHAR(50), @password NVARCHAR(255), @role TINYINT;
+    SELECT @username = i.TenDangNhap, @password = i.MatKhauMaHoa, @role = i.VaiTro
+    FROM inserted i;
+
+    DECLARE @sqlString NVARCHAR(MAX);
+
+    SET @sqlString = 'CREATE LOGIN [' + @username + '] WITH PASSWORD = N''' + @password + ''', DEFAULT_DATABASE = [QuanLyThuVien], CHECK_EXPIRATION = OFF, CHECK_POLICY = OFF';
+    EXEC sp_executesql @sqlString;
+
+    SET @sqlString = 'CREATE USER [' + @username + '] FOR LOGIN [' + @username + ']';
+    EXEC sp_executesql @sqlString;
+
+    IF (@role = 1) -- 1: Nhan vien
+    BEGIN
+        SET @sqlString = 'ALTER ROLE RoleNhanVien ADD MEMBER [' + @username + ']';
+    END
+    ELSE IF (@role = 0) -- 0: Admin
+    BEGIN
+        SET @sqlString = 'ALTER ROLE RoleAdmin ADD MEMBER [' + @username + ']';
+    END
+    EXEC sp_executesql @sqlString;
+END;
+GO
+
+CREATE OR ALTER TRIGGER trg_DeleteLoginUser
+ON TaiKhoan
+FOR DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DECLARE @username NVARCHAR(50);
+    SELECT @username = d.TenDangNhap FROM deleted d;
+
+    IF @username IS NULL RETURN;
+
+    DECLARE @sessionID INT;
+    DECLARE @sqlString NVARCHAR(MAX);
+
+    SELECT @sessionID = session_id
+    FROM sys.dm_exec_sessions
+    WHERE login_name = @username;
+
+    IF @sessionID IS NOT NULL
+    BEGIN
+        SET @sqlString = 'KILL ' + CONVERT(NVARCHAR(20), @sessionID);
+        EXEC sp_executesql @sqlString;
+    END
+
+    BEGIN TRY
+        SET @sqlString = 'DROP USER IF EXISTS [' + @username + ']';
+        EXEC sp_executesql @sqlString;
+
+        SET @sqlString = 'DROP LOGIN IF EXISTS [' + @username + ']';
+        EXEC sp_executesql @sqlString;
+    END TRY
+    BEGIN CATCH
+        DECLARE @err NVARCHAR(MAX);
+        SELECT @err = N'Lỗi khi xóa tài khoản SQL: ' + ERROR_MESSAGE();
+        RAISERROR(@err, 16, 1);
+    END CATCH
+END;
+GO
+
 -------------------------- Phan Ngoc Duy - Quan Ly Nhap Sach --------------------------
 
 CREATE OR ALTER TRIGGER trg_InsertTacGia
@@ -99,107 +170,3 @@ BEGIN
     INNER JOIN inserted i ON TN.IdTN = i.IdTN;
 END;
 GO
-
-CREATE OR ALTER TRIGGER UpdateKhoSach
-ON The_Nhap
-AFTER INSERT
-AS
-BEGIN
-    SET NOCOUNT ON;
-    DECLARE @IdS INT, @SoLuongThem INT;
-
-    -- Lấy dữ liệu từ inserted
-    SELECT @IdS = IdS, @SoLuongThem = TongSoLuongNhap
-    FROM inserted
-    WHERE TrangThai = 'DaNhap';
-
-    -- Kiểm tra IdS tồn tại
-    IF NOT EXISTS (SELECT 1 FROM SACH WHERE IdS = @IdS)
-    BEGIN
-        RAISERROR ('Mã sách không tồn tại trong bảng SACH', 16, 1);
-        RETURN;
-    END;
-
-    -- Kiểm tra số lượng âm
-    IF @SoLuongThem < 0 AND EXISTS (
-        SELECT 1 FROM Kho_Sach 
-        WHERE MaSach = @IdS AND SoLuongHienTai + @SoLuongThem < 0
-    )
-    BEGIN
-        RAISERROR ('Số lượng thêm vào không hợp lệ: kho không đủ sách', 16, 1);
-        RETURN;
-    END;
-
-    -- Cập nhật hoặc thêm vào Kho_Sach
-    IF EXISTS (SELECT 1 FROM Kho_Sach WHERE MaSach = @IdS)
-    BEGIN
-        UPDATE Kho_Sach
-        SET SoLuongHienTai = SoLuongHienTai + @SoLuongThem,
-            TrangThaiSach = CASE WHEN SoLuongHienTai + @SoLuongThem > 0 THEN 'ConSach' ELSE 'HetSach' END
-        WHERE MaSach = @IdS;
-    END
-    ELSE IF @SoLuongThem > 0
-    BEGIN
-        INSERT INTO Kho_Sach (MaSach, SoLuongHienTai, TrangThaiSach)
-        VALUES (@IdS, @SoLuongThem, 'ConSach');
-    END;
-END;
-GO
-
--------------------------- Vu Minh Hieu - Quan ly muon sach --------------------------
-GO
-CREATE TRIGGER trg_CapNhatSoLuongSachTrongKho
-ON ChiTietTheMuon
-AFTER INSERT
-AS
-BEGIN
-    DECLARE @MaSach VARCHAR(10);
-    DECLARE @SoLuong INT;
-
-    -- Lấy MaSach và SoLuong từ bản ghi vừa được chèn
-    SELECT @MaSach = MaSach, @SoLuong = SoLuong
-    FROM INSERTED;
-
-    -- Kiểm tra nếu số lượng sách trong kho đủ
-    IF EXISTS (SELECT 1 FROM Kho_Sach WHERE MaSach = @MaSach AND SoLuongHienTai >= @SoLuong)
-    BEGIN
-        -- Cập nhật giảm số lượng sách trong kho
-        UPDATE Kho_Sach
-        SET SoLuongHienTai = SoLuongHienTai - @SoLuong
-        WHERE MaSach = @MaSach;
-    END
-    ELSE
-    BEGIN
-        -- Nếu số lượng sách không đủ, thông báo lỗi và rollback
-        PRINT 'Số lượng sách không đủ để mượn!';
-        ROLLBACK TRANSACTION;
-    END
-END;
-
-------- Bui Thanh Tam - Quan ly tra sach------
-
-
-
-CREATE OR ALTER TRIGGER trg_MoKhoaDocGiaKhiThanhToan
-ON ThePhat
-AFTER UPDATE
-AS
-BEGIN
-    IF UPDATE(TrangThaiThanhToan)
-    BEGIN
-        UPDATE DG
-        SET TrangThai = 'ConHan'
-        FROM DocGia DG
-        WHERE DG.ID IN (
-            SELECT tm.MaDG
-            FROM inserted i
-            JOIN TraSach ts ON i.MaTraSach = ts.MaTraSach
-            JOIN TheMuon tm ON ts.MaTheMuon = tm.MaTheMuon
-            GROUP BY tm.MaDG
-            HAVING SUM(CASE WHEN i.TrangThaiThanhToan = 'ChuaThanhToan' THEN 1 ELSE 0 END) = 0
-        );
-    END
-END;
-GO
-
-

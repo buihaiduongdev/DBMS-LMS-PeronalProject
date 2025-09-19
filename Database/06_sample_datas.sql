@@ -97,33 +97,6 @@ VALUES
 (N'Tắt đèn', 2002, 95000, 10, 6, 4);
 GO
 
-INSERT INTO The_Nhap (IdNV, IdS, NgayNhap, TrangThai, TongSoLuongNhap, GiaNhap, TongTienNhap)
-VALUES
-    (1, 1, '2025-09-01', 'DaNhap', 20, 100000.00, 2000000.00),
-    (1, 2, '2025-09-02', 'ChuaNhap', 15, 80000.00, 1200000.00), 
-    (2, 3, '2025-09-03', 'DaNhap', 30, 150000.00, 4500000.00),  
-    (2, 4, '2025-09-04', 'ChuaNhap', 25, 120000.00, 3000000.00), 
-    (1, 5, '2025-09-05', 'DaNhap', 10, 200000.00, 2000000.00),  
-    (1, 6, '2025-09-06', 'ChuaNhap', 40, 150000.00, 6000000.00), 
-    (2, 7, '2025-09-07', 'DaNhap', 15, 100000.00, 1500000.00),  
-    (2, 8, '2025-09-08', 'ChuaNhap', 20, 90000.00, 1800000.00),  
-    (1, 9, '2025-09-09', 'DaNhap', 25, 120000.00, 3000000.00),  
-    (1, 10, '2025-09-10', 'ChuaNhap', 30, 70000.00, 2100000.00); 
-GO
-  
-INSERT INTO Kho_Sach (MaSach, SoLuongHienTai, TrangThaiSach)
-VALUES
-    (1, 20, 'ConSach'),  
-    (2, 0, 'HetSach'),   
-    (3, 30, 'ConSach'),  
-    (4, 0, 'HetSach'),  
-    (5, 10, 'ConSach'), 
-    (6, 0, 'HetSach'),  
-    (7, 15, 'ConSach'),  
-    (8, 0, 'HetSach'),   
-    (9, 25, 'ConSach'), 
-    (10, 0, 'HetSach');  
-GO
   
 -------------------------- QUAN LY MUON SACH (Vu Minh Hieu) --------------------------
 INSERT INTO TheMuon (MaDG, IdNV, NgayMuon, NgayHenTra, TrangThai)
@@ -131,12 +104,4 @@ VALUES
 (1, 1, '2025-08-24', '2025-09-07', 'DangMuon'), -- MaTheMuon sẽ là 1
 (2, 2, '2025-08-25', '2025-09-10', 'DangMuon'), -- MaTheMuon sẽ là 2
 (3, 3, '2025-08-26', '2025-09-12', 'DangMuon'); -- MaTheMuon sẽ là 3
-GO
-
-INSERT INTO ChiTietTheMuon (MaTheMuon, IdS, SoLuong)
-VALUES
-(1, 1, 2),
-(1, 2, 1),
-(2, 3, 1),
-(3, 4, 2);
 GO

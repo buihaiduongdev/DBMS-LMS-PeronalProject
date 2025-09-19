@@ -1,9 +1,6 @@
-﻿USE QuanLyThuVien;
-GO
--------------------------- Bui Hai Duong - Quan Ly Doc Gia --------------------------
-
 USE QuanLyThuVien;
 GO
+-------------------------- Bui Hai Duong - Quan Ly Doc Gia --------------------------
 
 CREATE OR ALTER PROCEDURE sp_InsertDocGia
     @HoTen NVARCHAR(50),
@@ -15,6 +12,26 @@ CREATE OR ALTER PROCEDURE sp_InsertDocGia
     @NgayHetHan DATE
 AS
 BEGIN
+    -- 1. Kiem tra du lieu dau vao
+    IF EXISTS (SELECT 1 FROM DocGia WHERE Email = @Email)
+    BEGIN
+        RAISERROR(N'Email đã được sử dụng bởi một độc giả khác.', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM DocGia WHERE SoDienThoai = @SoDienThoai)
+    BEGIN
+        RAISERROR(N'Số điện thoại đã được sử dụng bởi một độc giả khác.', 16, 1);
+        RETURN;
+    END
+
+    IF @NgaySinh > GETDATE()
+    BEGIN
+        RAISERROR(N'Ngày sinh không hợp lệ.', 16, 1);
+        RETURN;
+    END
+
+    -- 2. Thuc hien them moi
     BEGIN TRANSACTION;
     BEGIN TRY
         INSERT INTO DocGia(HoTen, NgaySinh, DiaChi, Email, SoDienThoai, NgayDangKy, NgayHetHan, TrangThai)
@@ -41,6 +58,32 @@ CREATE OR ALTER PROCEDURE sp_UpdateDocGia
     @TrangThai NVARCHAR(20)
 AS
 BEGIN
+    -- 1. Kiem tra du lieu dau vao
+    IF NOT EXISTS (SELECT 1 FROM DocGia WHERE ID = @ID)
+    BEGIN
+        RAISERROR(N'Không tìm thấy độc giả với ID cung cấp.', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM DocGia WHERE Email = @Email AND ID != @ID)
+    BEGIN
+        RAISERROR(N'Email đã được sử dụng bởi một độc giả khác.', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM DocGia WHERE SoDienThoai = @SoDienThoai AND ID != @ID)
+    BEGIN
+        RAISERROR(N'Số điện thoại đã được sử dụng bởi một độc giả khác.', 16, 1);
+        RETURN;
+    END
+
+    IF @NgaySinh > GETDATE()
+    BEGIN
+        RAISERROR(N'Ngày sinh không hợp lệ.', 16, 1);
+        RETURN;
+END
+
+    -- 2. Thuc hien cap nhat
     BEGIN TRANSACTION;
     BEGIN TRY
         UPDATE DocGia
@@ -67,11 +110,23 @@ CREATE OR ALTER PROCEDURE sp_DeleteDocGia
     @ID INT
 AS
 BEGIN
+    -- 1. Kiem tra dieu kien xoa
+    IF NOT EXISTS (SELECT 1 FROM DocGia WHERE ID = @ID)
+    BEGIN
+        RAISERROR(N'Không tìm thấy độc giả với ID cung cấp.', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM TheMuon WHERE MaDG = @ID AND TrangThai = 'DangMuon')
+    BEGIN
+        RAISERROR(N'Không thể xóa độc giả này vì họ đang có sách chưa trả.', 16, 1);
+        RETURN;
+    END
+    
+    -- 2. Thuc hien xoa
     BEGIN TRANSACTION;
     BEGIN TRY
-        
         DELETE FROM DocGia WHERE ID = @ID;
-
         COMMIT TRANSACTION;
     END TRY
     BEGIN CATCH
@@ -92,17 +147,41 @@ CREATE OR ALTER PROCEDURE sp_InsertNhanVien
 AS
 BEGIN
     SET NOCOUNT ON;
+    -- 1. Kiem tra du lieu dau vao
+    IF EXISTS (SELECT 1 FROM TaiKhoan WHERE TenDangNhap = @TenDangNhap)
+    BEGIN
+        RAISERROR(N'Tên đăng nhập đã tồn tại.', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM NhanVien WHERE Email = @Email)
+    BEGIN
+        RAISERROR(N'Email đã được sử dụng bởi một nhân viên khác.', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM NhanVien WHERE SoDienThoai = @SoDienThoai)
+    BEGIN
+        RAISERROR(N'Số điện thoại đã được sử dụng bởi một nhân viên khác.', 16, 1);
+        RETURN;
+    END
+
+    IF @NgaySinh > GETDATE()
+    BEGIN
+        RAISERROR(N'Ngày sinh không hợp lệ.', 16, 1);
+        RETURN;
+    END
+
+    -- 2. Thuc hien them moi
     BEGIN TRANSACTION;
     BEGIN TRY
         DECLARE @MaTK INT;
 
-        -- 1. Tạo tài khoản
         INSERT INTO TaiKhoan (TenDangNhap, MatKhauMaHoa, VaiTro, TrangThai)
-        VALUES (@TenDangNhap, @MatKhauMaHoa, 1, 1);
+        VALUES (@TenDangNhap, @MatKhauMaHoa, 1, 1); -- VaiTro 1 = NhanVien, TrangThai 1 = HoatDong
 
         SET @MaTK = SCOPE_IDENTITY();
 
-        -- 2. Tạo nhân viên gắn với tài khoản
         INSERT INTO NhanVien(MaTK, HoTen, NgaySinh, Email, SoDienThoai, ChucVu)
         VALUES(@MaTK, @HoTen, @NgaySinh, @Email, @SoDienThoai, @ChucVu);
 
@@ -110,7 +189,7 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
-	THROW;
+	    THROW;
     END CATCH
 END;
 GO
@@ -124,6 +203,32 @@ CREATE OR ALTER PROCEDURE sp_UpdateNhanVien
     @ChucVu NVARCHAR(50)
 AS
 BEGIN
+    -- 1. Kiem tra du lieu dau vao
+    IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE IdNV = @IdNV)
+    BEGIN
+        RAISERROR(N'Không tìm thấy nhân viên với ID cung cấp.', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM NhanVien WHERE Email = @Email AND IdNV != @IdNV)
+    BEGIN
+        RAISERROR(N'Email đã được sử dụng bởi một nhân viên khác.', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM NhanVien WHERE SoDienThoai = @SoDienThoai AND IdNV != @IdNV)
+    BEGIN
+        RAISERROR(N'Số điện thoại đã được sử dụng bởi một nhân viên khác.', 16, 1);
+        RETURN;
+    END
+
+    IF @NgaySinh > GETDATE()
+    BEGIN
+        RAISERROR(N'Ngày sinh không hợp lệ.', 16, 1);
+        RETURN;
+    END
+
+    -- 2. Thuc hien cap nhat
     BEGIN TRANSACTION;
     BEGIN TRY
         UPDATE NhanVien
@@ -148,25 +253,31 @@ CREATE OR ALTER PROCEDURE sp_DeleteNhanVien
 AS
 BEGIN
     SET NOCOUNT ON;
+    -- 1. Kiem tra dieu kien
+    IF NOT EXISTS (SELECT 1 FROM NhanVien WHERE IdNV = @IdNV)
+    BEGIN
+        RAISERROR(N'Không tìm thấy nhân viên với ID cung cấp.', 16, 1);
+        RETURN;
+    END;
+
+    -- 2. Thuc hien xoa vinh vien (hard delete)
     BEGIN TRANSACTION;
     BEGIN TRY
         DECLARE @MaTK INT;
-
-        -- Lấy MaTK gắn với nhân viên
         SELECT @MaTK = MaTK FROM NhanVien WHERE IdNV = @IdNV;
 
-        -- Xóa nhân viên
         DELETE FROM NhanVien WHERE IdNV = @IdNV;
 
-        -- Xóa tài khoản
         IF @MaTK IS NOT NULL
             DELETE FROM TaiKhoan WHERE MaTK = @MaTK;
+        ELSE
+             RAISERROR(N'Nhân viên này không có tài khoản liên kết để xóa.', 16, 1);
 
         COMMIT TRANSACTION;
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
-	THROW;
+	    THROW;
     END CATCH
 END;
 GO
@@ -199,9 +310,9 @@ BEGIN
     PRINT N'Gia hạn thẻ thành công cho độc giả ' + @MaDG;
 END;
 GO
+
 CREATE OR ALTER PROCEDURE sp_Admin_SetDocGiaEditLock
     @IsLocked BIT
-
 AS
 BEGIN
     IF @IsLocked = 1

@@ -97,27 +97,6 @@ CREATE TABLE SACH (
 );
 GO
 
-CREATE TABLE The_Nhap (
-    IdTN INT PRIMARY KEY IDENTITY(1, 1),
-    MaTheNhap VARCHAR(50) NULL,
-	IdS INT NOT NULL REFERENCES SACH(IdS) ON DELETE NO ACTION,
-    IdNV INT NOT NULL REFERENCES NhanVien(IdNV) ON DELETE NO ACTION,
-    NgayNhap DATE NOT NULL,
-    TrangThai VARCHAR(50) NOT NULL CHECK (TrangThai IN ('DaNhap', 'ChuaNhap')),
-    GiaNhap DECIMAL(10, 2) NOT NULL DEFAULT 0.00 CHECK (GiaNhap >= 0),
-	TongTienNhap DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
-	TongSoLuongNhap INT NOT NULL CHECK (TongSoLuongNhap > 0)
-);
-GO
-	
-CREATE TABLE Kho_Sach (
-    IdK INT PRIMARY KEY IDENTITY(1, 1),  
-    MaSach INT NOT NULL REFERENCES SACH(IdS) ON DELETE CASCADE,  
-    SoLuongHienTai INT NOT NULL DEFAULT 0 CHECK (SoLuongHienTai >= 0),
-    TrangThaiSach VARCHAR(50) NOT NULL DEFAULT 'HetSach' CHECK (TrangThaiSach IN ('ConSach', 'HetSach'))
-);
-GO
-	
 --------------------------Vu Minh Hieu- Quan Ly Muon Sach --------------------------
 CREATE TABLE TheMuon (
     MaTheMuon INT PRIMARY KEY IDENTITY(1,1),
@@ -131,18 +110,6 @@ CREATE TABLE TheMuon (
         CHECK (TrangThai IN ('DangMuon','DaTra','TreHan'))
 );
 
--- Bảng chi tiết phiếu mượn (một phiếu mượn có nhiều sách)
-CREATE TABLE ChiTietTheMuon (
-    MaTheMuon INT NOT NULL,
-    IdS INT NOT NULL,  -- Tham chiếu đến SACH(IdS)
-    SoLuong INT DEFAULT 1 CHECK (SoLuong > 0),
-    PRIMARY KEY (MaTheMuon, IdS),
-    FOREIGN KEY (MaTheMuon) REFERENCES TheMuon(MaTheMuon)
-        ON DELETE CASCADE,
-    FOREIGN KEY (IdS) REFERENCES Sach(IdS)
-        ON DELETE CASCADE
-);
-
 
 -------------------------- Bui Thanh Tam - Quan Ly Tra Sach --------------------------
 CREATE TABLE TraSach (
@@ -154,26 +121,5 @@ CREATE TABLE TraSach (
     NgayTra DATE NOT NULL,   -- Ngày thực hiện trả
     GhiChu NVARCHAR(255) NULL,
     DaThongBao BIT NOT NULL DEFAULT 0
-);
-
-CREATE TABLE ChiTietTraSach (
-    MaTraSach INT NOT NULL REFERENCES TraSach(MaTraSach) ON DELETE CASCADE,
-    IdS INT NOT NULL REFERENCES Sach(IdS) ON DELETE CASCADE,
-    SoLuongTra INT NOT NULL CHECK (SoLuongTra > 0),
-    ChatLuongSach VARCHAR(20) NOT NULL CHECK (ChatLuongSach IN ('Tot','HuHong','Mat')),
-    PRIMARY KEY (MaTraSach, IdS)
-);
-
-
-CREATE TABLE ThePhat (
-    MaPhat INT PRIMARY KEY IDENTITY(1,1),
-    MaTraSach INT NOT NULL REFERENCES TraSach(MaTraSach) ON DELETE CASCADE,
-    IdS INT NOT NULL REFERENCES Sach(IdS) ON DELETE CASCADE,
-    SoTienPhat DECIMAL(10,2) NOT NULL,
-    LyDoPhat NVARCHAR(100) NOT NULL,
-    TrangThaiThanhToan VARCHAR(20) NOT NULL 
-        CHECK (TrangThaiThanhToan IN ('DaThanhToan','ChuaThanhToan','MienPhi')),
-    NgayThanhToan DATE NULL,
-    GhiChu NVARCHAR(255) NULL
 );
 

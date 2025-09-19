@@ -10,50 +10,41 @@ namespace LMSProject.Utils
 {
     public class DbHelper
     {
-        private string GetConnectionString()
+         private static string _sessionConnectionString;
+
+        public static void BuildAndSetConnectionString(string username, string password)
         {
-            User currentUser = UserService.CurrentUser;
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "."; 
+            builder.DataSource = ".";
             builder.InitialCatalog = "QuanLyThuVien";
-            builder.IntegratedSecurity = false; 
+            builder.IntegratedSecurity = false;
+            builder.UserID = username;
+            builder.Password = Security.HashMD5(password);
 
-            if (currentUser == null)
+            string connString = builder.ConnectionString;
+
+            try
             {
-                builder.UserID = "login_user";
-                builder.Password = "LoginPassword123!";
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    conn.Open(); 
+                }
+                _sessionConnectionString = connString;
             }
-            else
+            catch (SqlException)
             {
-                // Case 2: User is logged in
-                string sqlUsername = "";
-                string sqlPassword = "StrongPassword123!";
-
-                if (currentUser.VaiTro == 0) // Admin role
-                {
-                    sqlUsername = "userAD";
-                }
-                else if (currentUser.VaiTro == 1) // Staff role
-                {
-                    if (currentUser.ChucVu == "ThuThu")
-                    {
-                        sqlUsername = "userQL"; 
-                    }
-                    else
-                    {
-                        sqlUsername = "userNV";
-                    }
-                }
-                builder.UserID = sqlUsername;
-                builder.Password = sqlPassword;
+                _sessionConnectionString = null;
+                throw;
             }
-
-            return builder.ConnectionString;
         }
 
         public SqlConnection GetConnection()
         {
-            return new SqlConnection(GetConnectionString());
+            if (string.IsNullOrEmpty(_sessionConnectionString))
+            {
+                throw new InvalidOperationException("Chuỗi kết nối chưa được thiết lập");
+            }
+            return new SqlConnection(_sessionConnectionString);
         }
 
         private void AddParameters(SqlCommand cmd, Dictionary<string, object> parameters)
