@@ -3,52 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\utils\\dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:utils\\dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\services\\nhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:services\\nhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\services\\docgiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:services\\docgiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\frmqlnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmqlnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\frmmain_nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmmain_nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\frmthemmoinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmthemmoinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\frmthemmoinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\forms\\frmthemmoinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmthemmoinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\services\\docgiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:services\\docgiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\forms\\frmqlnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmqlnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmqldocgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\forms\\frmmain_nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmmain_nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\forms\\frmthemmoinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmthemmoinv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\frmsuanhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\forms\\frmsuanhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmsuanhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|c:\\users\\haidu\\documents\\workspace\\hqt\\dbms-lms-peronalproject\\lmsproject\\utils\\securityhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38F5667D-39E8-42EE-BAE0-1D498D5A9E4F}|LMSProject.csproj|solutionrelative:utils\\securityhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,59 +74,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DocGiaService.cs",
-              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\DocGiaService.cs",
-              "RelativeDocumentMoniker": "Services\\DocGiaService.cs",
-              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\DocGiaService.cs",
-              "RelativeToolTip": "Services\\DocGiaService.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAowGYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "DbHelper.cs",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Utils\\DbHelper.cs",
+              "RelativeDocumentMoniker": "Utils\\DbHelper.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Utils\\DbHelper.cs",
+              "RelativeToolTip": "Utils\\DbHelper.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwEwAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T10:05:42.424Z",
+              "WhenOpened": "2025-09-19T08:35:31.099Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmMain_NhanVien.cs",
-              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmMain_NhanVien.cs",
-              "RelativeDocumentMoniker": "Forms\\frmMain_NhanVien.cs",
-              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmMain_NhanVien.cs",
-              "RelativeToolTip": "Forms\\frmMain_NhanVien.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAGAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\UserService.cs",
+              "RelativeToolTip": "Services\\UserService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCAAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T10:02:42.224Z",
+              "WhenOpened": "2025-09-19T08:33:09.58Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SecurityHelper.cs",
-              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Utils\\SecurityHelper.cs",
-              "RelativeDocumentMoniker": "Utils\\SecurityHelper.cs",
-              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Utils\\SecurityHelper.cs",
-              "RelativeToolTip": "Utils\\SecurityHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T09:53:42.3Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "frmSuaNhanVien.cs",
-              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmSuaNhanVien.cs",
-              "RelativeDocumentMoniker": "Forms\\frmSuaNhanVien.cs",
-              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmSuaNhanVien.cs",
-              "RelativeToolTip": "Forms\\frmSuaNhanVien.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAhwDcAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T09:51:17.392Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "frmThemMoiNV.cs [Design]",
               "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmThemMoiNV.cs",
               "RelativeDocumentMoniker": "Forms\\frmThemMoiNV.cs",
@@ -134,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "frmQLNhanVien.cs",
               "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLNhanVien.cs",
               "RelativeDocumentMoniker": "Forms\\frmQLNhanVien.cs",
@@ -142,25 +120,24 @@
               "RelativeToolTip": "Forms\\frmQLNhanVien.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAA3wCwAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T09:02:36.856Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T09:02:36.856Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "NhanVienService.cs",
               "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\NhanVienService.cs",
               "RelativeDocumentMoniker": "Services\\NhanVienService.cs",
               "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\NhanVienService.cs",
               "RelativeToolTip": "Services\\NhanVienService.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAgwKsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAwwAcAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-17T09:36:40.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "frmQLDocGia.cs",
               "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs",
               "RelativeDocumentMoniker": "Forms\\frmQLDocGia.cs",
@@ -168,37 +145,84 @@
               "RelativeToolTip": "Forms\\frmQLDocGia.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAYwHAAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T10:07:09.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T10:07:09.898Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "frmQLDocGia.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs",
-              "RelativeDocumentMoniker": "Forms\\frmQLDocGia.cs",
-              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs [Design]",
-              "RelativeToolTip": "Forms\\frmQLDocGia.cs [Design]",
+              "Title": "frmThemMoiNV.cs",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmThemMoiNV.cs",
+              "RelativeDocumentMoniker": "Forms\\frmThemMoiNV.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmThemMoiNV.cs",
+              "RelativeToolTip": "Forms\\frmThemMoiNV.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAADQAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T10:09:26.382Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-17T09:50:52.886Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
+              "Title": "frmMain_NhanVien.cs",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmMain_NhanVien.cs",
+              "RelativeDocumentMoniker": "Forms\\frmMain_NhanVien.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmMain_NhanVien.cs",
+              "RelativeToolTip": "Forms\\frmMain_NhanVien.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T10:02:42.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "frmLogin.cs",
               "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmLogin.cs",
               "RelativeDocumentMoniker": "Forms\\frmLogin.cs",
               "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmLogin.cs",
               "RelativeToolTip": "Forms\\frmLogin.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-17T09:53:49.342Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "frmSuaNhanVien.cs",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmSuaNhanVien.cs",
+              "RelativeDocumentMoniker": "Forms\\frmSuaNhanVien.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmSuaNhanVien.cs",
+              "RelativeToolTip": "Forms\\frmSuaNhanVien.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAhwDcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T09:51:17.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DocGiaService.cs",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\DocGiaService.cs",
+              "RelativeDocumentMoniker": "Services\\DocGiaService.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Services\\DocGiaService.cs",
+              "RelativeToolTip": "Services\\DocGiaService.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAowGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T10:05:42.424Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "frmQLDocGia.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs",
+              "RelativeDocumentMoniker": "Forms\\frmQLDocGia.cs",
+              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmQLDocGia.cs [Design]",
+              "RelativeToolTip": "Forms\\frmQLDocGia.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T10:09:26.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "NhanVien.cs",
               "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Models\\NhanVien.cs",
               "RelativeDocumentMoniker": "Models\\NhanVien.cs",
@@ -206,21 +230,7 @@
               "RelativeToolTip": "Models\\NhanVien.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T09:55:21.141Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "frmThemMoiNV.cs",
-              "DocumentMoniker": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmThemMoiNV.cs",
-              "RelativeDocumentMoniker": "Forms\\frmThemMoiNV.cs",
-              "ToolTip": "C:\\Users\\haidu\\Documents\\Workspace\\HQT\\DBMS-LMS-PeronalProject\\LMSProject\\Forms\\frmThemMoiNV.cs",
-              "RelativeToolTip": "Forms\\frmThemMoiNV.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAQwD0AAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T09:50:52.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T09:55:21.141Z"
             }
           ]
         },

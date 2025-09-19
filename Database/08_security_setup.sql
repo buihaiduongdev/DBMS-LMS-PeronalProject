@@ -40,6 +40,7 @@ GRANT SELECT ON OBJECT::TaiKhoan TO login_user;
 GRANT SELECT ON OBJECT::NhanVien TO login_user;
 
 -- Quyen cho RoleNhanVien: Them/Sua/Sp/Fn doc gia
+GRANT SELECT ON OBJECT::TaiKhoan TO RoleNhanVien;
 GRANT EXECUTE ON OBJECT::sp_InsertDocGia TO RoleNhanVien;
 GRANT EXECUTE ON OBJECT::sp_UpdateDocGia TO RoleNhanVien;
 GRANT EXECUTE ON OBJECT::sp_GiaHanTheDocGia TO RoleNhanVien;

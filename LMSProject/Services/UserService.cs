@@ -10,15 +10,17 @@ namespace LMSProject.Services
     public class UserService
     {
         public static User CurrentUser { get; set; }
-        private readonly DbHelper _dbHelper;
+        private DbHelper _dbHelper;
 
         public UserService()
         {
             _dbHelper = new DbHelper();
+            
         }
 
         public User Login(string username, string password)
         {
+            
             // Bước 1: Xác thực tài khoản
             string hashedPassword = SecurityHelper.HashMD5(password);
             string authSql = "SELECT MaTK, TenDangNhap, VaiTro, TrangThai FROM TaiKhoan WHERE TenDangNhap = @Username AND MatKhauMaHoa = @Password";
@@ -27,7 +29,7 @@ namespace LMSProject.Services
                 { "@Username", username },
                 { "@Password", hashedPassword }
             };
-
+            DbHelper.BuildAndSetConnectionString(username, password);
             DataTable authDt = _dbHelper.ExecuteReader(authSql, authParams);
            
             if (authDt.Rows.Count > 0)

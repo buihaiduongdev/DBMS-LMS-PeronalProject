@@ -19,7 +19,7 @@ namespace LMSProject.Utils
             builder.InitialCatalog = "QuanLyThuVien";
             builder.IntegratedSecurity = false;
             builder.UserID = username;
-            builder.Password = Security.HashMD5(password);
+            builder.Password = SecurityHelper.HashMD5(password);
 
             string connString = builder.ConnectionString;
 
@@ -40,6 +40,7 @@ namespace LMSProject.Utils
 
         public SqlConnection GetConnection()
         {
+
             if (string.IsNullOrEmpty(_sessionConnectionString))
             {
                 throw new InvalidOperationException("Chuỗi kết nối chưa được thiết lập");
